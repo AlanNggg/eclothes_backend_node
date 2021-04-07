@@ -2,6 +2,8 @@ const crypto = require("crypto"); // built-in
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 
+// lastName, firstName & username for 商店管理者
+// shopName 商店名
 const userSchema = mongoose.Schema(
     {
         firstName: {
@@ -25,6 +27,27 @@ const userSchema = mongoose.Schema(
             trim: true,
             maxlength: 20,
             minlength: 1,
+        },
+        stopName: {
+            type: String,
+            required: [true, "Please enter your shop name"],
+            trim: true,
+            maxlength: 20,
+            minlength: 1,
+        },
+        location: {
+            type: {
+                type: String,
+                default: "Point",
+                enum: ["Point"],
+            },
+            coordinates: [Number],
+            address: String,
+            district: {
+                type: mongoose.Types.ObjectId,
+                ref: "District",
+                required: true,
+            },
         },
         phone: {
             type: String,
@@ -60,11 +83,11 @@ const userSchema = mongoose.Schema(
         photo: {
             type: String,
             trim: true,
-            default: "userAvator.png",
+            default: "merchantAvator.png",
         },
-        info: {
+        description: {
             type: String,
-            default: "This person is lazy.",
+            default: "No description",
             maxlength: 100,
         },
         passwordChangedAt: Date,
