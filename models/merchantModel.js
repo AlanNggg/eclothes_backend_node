@@ -112,11 +112,7 @@ merchantSchema.pre(/^find/, function (next) {
 });
 merchantSchema.pre(/^find/, function (next) {
     this.populate({
-        path: "location",
-        populate: {
-            path: "district",
-            model: "District",
-        },
+        path: "location.district",
     });
     next();
 });
