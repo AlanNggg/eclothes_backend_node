@@ -15,6 +15,7 @@ exports.getAllFavorites = async (req, res, next) => {
     }
 };
 
+// admin
 exports.addFavorite = async (req, res, next) => {
     try {
         const favorite = await Favorite.create(req.body);

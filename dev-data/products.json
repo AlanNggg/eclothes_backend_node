@@ -1,71 +1,115 @@
 [
     {
-        "shopId": "606b57c8a307473eb5d3f7f7",
-        "image": "aaa.png",
+        "_id": {
+            "$oid": "606c670a2b63e377cfc70461"
+        },
+        "merchant": {
+            "$oid": "606b57c8a307473eb5d3f7f7"
+        },
+        "photos": ["aaa.png"],
         "price": 100,
         "quantity": 50,
-        "categoryId": "606b591ea307473eb5d3f7fd",
+        "category": {
+            "$oid": "606b591ea307473eb5d3f7fd"
+        },
         "options": {
             "color": ["red", "blue", "green"],
             "size": ["XS", "S", "M", "L", "XL"]
         },
         "ratingsAverage": 4.8,
+        "ratingsQuantity": 0,
         "description": "This is t-shirt",
         "createdAt": "2020-10-28T10:00:00.000Z"
     },
     {
-        "shopId": "606b57c8a307473eb5d3f7f7",
-        "image": "bbb.png",
+        "_id": {
+            "$oid": "606c670a2b63e377cfc70462"
+        },
+        "merchant": {
+            "$oid": "606b57c8a307473eb5d3f7f7"
+        },
+        "photos": ["bbb.png"],
         "price": 100,
         "quantity": 50,
-        "categoryId": "606b591ea307473eb5d3f7fd",
+        "category": {
+            "$oid": "606b591ea307473eb5d3f7fd"
+        },
+        "style": "hello world",
         "options": {
             "color": ["red", "blue", "green"],
             "size": ["XS", "S", "M", "L", "XL"]
         },
         "ratingsAverage": 4.8,
+        "ratingsQuantity": 0,
         "description": "This is t-shirt",
         "createdAt": "2020-10-29T10:00:00.000Z"
     },
     {
-        "shopId": "606b57c8a307473eb5d3f7f8",
-        "image": "ccc.png",
+        "_id": {
+            "$oid": "606c670a2b63e377cfc70463"
+        },
+        "merchant": {
+            "$oid": "606b57c8a307473eb5d3f7f8"
+        },
+        "photos": ["ccc.png"],
         "price": 100,
         "quantity": 50,
-        "categoryId": "606b591ea307473eb5d3f7fe",
+        "category": {
+            "$oid": "606b591ea307473eb5d3f7fe"
+        },
+        "style": "chinese",
         "options": {
             "color": ["red", "blue", "green"],
             "size": ["XS", "S", "M", "L", "XL"]
         },
         "ratingsAverage": 4.8,
+        "ratingsQuantity": 0,
         "description": "This is jeans",
         "createdAt": "2020-10-30T10:00:00.000Z"
     },
     {
-        "shopId": "606b57c8a307473eb5d3f7f9",
-        "image": "ddd.png",
+        "_id": {
+            "$oid": "606c670a2b63e377cfc70464"
+        },
+        "merchant": {
+            "$oid": "606b57c8a307473eb5d3f7f9"
+        },
+        "photos": ["ddd.png"],
         "price": 100,
         "quantity": 50,
-        "categoryId": "606b591ea307473eb5d3f7ff",
+        "category": {
+            "$oid": "606b591ea307473eb5d3f7ff"
+        },
+        "style": "abc",
         "options": {
             "color": ["red"],
             "size": ["均碼"]
         },
         "ratingsAverage": 4.8,
+        "ratingsQuantity": 0,
         "description": "This is pants",
         "createdAt": "2020-10-31T10:00:00.000Z"
     },
     {
-        "shopId": "606b57c8a307473eb5d3f7f9",
-        "image": "eee.png",
+        "_id": {
+            "$oid": "606c670a2b63e377cfc70465"
+        },
+        "merchant": {
+            "$oid": "606b57c8a307473eb5d3f7f9"
+        },
+        "photos": ["eee.png"],
         "price": 100,
         "quantity": 50,
-        "categoryId": "606b591ea307473eb5d3f800",
+        "category": {
+            "$oid": "606b591ea307473eb5d3f800"
+        },
+        "style": "japan",
         "options": {
             "color": ["red", "blue", "green"],
             "size": ["XS", "S", "M", "L", "XL"]
         },
         "ratingsAverage": 4.8,
+        "ratingsQuantity": 0,
         "description": "This is dresses",
         "createdAt": "2020-11-01T10:00:00.000Z"
     }

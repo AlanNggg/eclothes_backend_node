@@ -1,5 +1,6 @@
 const Region = require("../models/regionModel");
 
+// public
 exports.getAllRegions = async (req, res, next) => {
     try {
         const regions = await Region.find();
@@ -15,6 +16,7 @@ exports.getAllRegions = async (req, res, next) => {
     }
 };
 
+// admin
 exports.createRegion = async (req, res, next) => {
     try {
         const newRegion = await Region.create({
