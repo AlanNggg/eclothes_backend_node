@@ -62,7 +62,7 @@ const merchantSchema = mongoose.Schema(
             unique: true,
             trim: true,
             maxlength: 16,
-            minlength: 10,
+            minlength: 8,
         },
         password: {
             type: String,
@@ -110,12 +110,12 @@ merchantSchema.pre(/^find/, function (next) {
     this.select("-__v");
     next();
 });
-// merchantSchema.pre(/^find/, function (next) {
-//     this.populate({
-//         path: "location.district",
-//     });
-//     next();
-// });
+merchantSchema.pre(/^find/, function (next) {
+    this.populate({
+        path: "location.district",
+    });
+    next();
+});
 
 merchantSchema.pre("save", async function (next) {
     // Only run if password was modified or sign up

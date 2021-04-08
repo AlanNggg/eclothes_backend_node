@@ -45,3 +45,23 @@ exports.removeFavorite = async (req, res, next) => {
         next(err);
     }
 };
+
+// exports.removeFavoriteByProductId = async (req, res, next) => {
+//     try {
+//       let filter = {};
+//       const { post } = req.body;
+//       if (!post) {
+//         return next(new error("Please provide postId", 400));
+//       }
+//       filter = { post, user: req.user.id };
+
+//       await Favorite.findOneAndDelete(filter);
+
+//       res.status(200).json({
+//         status: "success",
+//         data: null,
+//       });
+//     } catch (err) {
+//       next(err);
+//     }
+//   };

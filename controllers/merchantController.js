@@ -2,7 +2,7 @@ const Merchant = require("../models/merchantModel");
 
 exports.getAllMerchants = async (req, res, next) => {
     try {
-        const merchants = Merchant.find();
+        const merchants = await Merchant.find();
 
         res.status(200).json({
             status: "success",
