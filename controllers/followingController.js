@@ -15,6 +15,21 @@ exports.getAllFollowings = async (req, res, next) => {
     }
 };
 
+exports.getFollowing = async (req, res, next) => {
+    try {
+        const following = await Following.findById(req.params.id);
+
+        res.status(200).json({
+            status: "success",
+            data: {
+                following,
+            },
+        });
+    } catch (err) {
+        next(err);
+    }
+};
+
 exports.addFollowing = async (req, res, next) => {
     try {
         const following = await Following.create(req.body);

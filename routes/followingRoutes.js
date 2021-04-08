@@ -10,6 +10,9 @@ router
     .get(followingController.getAllFollowings)
     .post(followingController.addFollowing);
 
-router.route("/:id").delete(followingController.removeFollowing);
+router
+    .route("/:id")
+    .get(followingController.getFollowing)
+    .delete(followingController.removeFollowing);
 
 module.exports = router;

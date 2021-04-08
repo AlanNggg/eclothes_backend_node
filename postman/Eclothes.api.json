@@ -1,0 +1,561 @@
+{
+	"info": {
+		"_postman_id": "738377a1-1680-4450-9b11-5619e3244347",
+		"name": "Eclothes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Regions",
+			"item": [
+				{
+					"name": "Get All Regions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/api/v1/regions",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"regions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Region By Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/api/v1/regions",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"regions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Region By Name",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/api/v1/regions/by/name",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"regions",
+								"by",
+								"name"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Districts",
+			"item": [
+				{
+					"name": "Get All Districts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/api/v1/districts",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"districts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete District By Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/api/v1/districts",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"districts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete District By Name",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/api/v1/districts/by/name",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"districts",
+								"by",
+								"name"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Merchants",
+			"item": [
+				{
+					"name": "Get All Merchants",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/api/v1/merchants",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"merchants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Merchants By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/api/v1/merchants/606b57c8a307473eb5d3f7f7",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"merchants",
+								"606b57c8a307473eb5d3f7f7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Merchants By Username",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/api/v1/merchants/by/username/AlanNggg",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"merchants",
+								"by",
+								"username",
+								"AlanNggg"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Merchants By Shop Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/api/v1/merchants/by/shopname/Apple inc.",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"merchants",
+								"by",
+								"shopname",
+								"Apple inc."
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "Get All Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/api/v1/categories",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"category\": \"Swimwear\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/api/v1/categories",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category By Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/api/v1/categories/606ef1bbdcc40b04ccfdf4bc",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"categories",
+								"606ef1bbdcc40b04ccfdf4bc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category By Name",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/api/v1/categories/by/name/Swimwear",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"categories",
+								"by",
+								"name",
+								"Swimwear"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/api/v1/users",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/api/v1/users/606b5638a307473eb5d3f7ea",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"606b5638a307473eb5d3f7ea"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users By Username",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/api/v1/users/by/username/ElianaS",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"by",
+								"username",
+								"ElianaS"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Followings",
+			"item": [
+				{
+					"name": "Get All Followings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/api/v1/followings",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"followings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Followings By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/api/v1/products/606b5c91a307473eb5d3f802",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"606b5c91a307473eb5d3f802"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Favorites",
+			"item": [
+				{
+					"name": "Get All Favorites",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/api/v1/favorites",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"favorites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Favorites By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/api/v1/favorites/606c67dc2b63e377cfc70466",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"favorites",
+								"606c67dc2b63e377cfc70466"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/api/v1/products",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/api/v1/products/606c670a2b63e377cfc70461",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"606c670a2b63e377cfc70461"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comments",
+			"item": [
+				{
+					"name": "Get All Comments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/api/v1/users",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Comment By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/api/v1/comments/606c69552b63e377cfc7046b",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"comments",
+								"606c69552b63e377cfc7046b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

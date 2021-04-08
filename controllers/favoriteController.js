@@ -15,6 +15,21 @@ exports.getAllFavorites = async (req, res, next) => {
     }
 };
 
+exports.getFavorite = async (req, res, next) => {
+    try {
+        const favorite = await Favorite.findById(req.params.id);
+
+        res.status(200).json({
+            status: "success",
+            data: {
+                favorite,
+            },
+        });
+    } catch (err) {
+        next(err);
+    }
+};
+
 // admin
 exports.addFavorite = async (req, res, next) => {
     try {
