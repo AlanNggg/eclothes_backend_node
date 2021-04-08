@@ -4,7 +4,7 @@ const bcrypt = require("bcryptjs");
 
 // lastName, firstName & username for 商店管理者
 // shopName 商店名
-const userSchema = mongoose.Schema(
+const merchantSchema = mongoose.Schema(
     {
         firstName: {
             type: String,
@@ -28,9 +28,10 @@ const userSchema = mongoose.Schema(
             maxlength: 20,
             minlength: 1,
         },
-        stopName: {
+        shopName: {
             type: String,
             required: [true, "Please enter your shop name"],
+            unique: true,
             trim: true,
             maxlength: 20,
             minlength: 1,
@@ -93,6 +94,11 @@ const userSchema = mongoose.Schema(
         passwordChangedAt: Date,
         passwordResetToken: String,
         passwordResetExpires: Date,
+        active: {
+            type: Boolean,
+            default: true,
+            select: false,
+        },
     },
     {
         toJSON: { virtuals: true },
@@ -100,12 +106,12 @@ const userSchema = mongoose.Schema(
     }
 );
 
-userSchema.pre(/^find/, function (next) {
+merchantSchema.pre(/^find/, function (next) {
     this.select("-__v");
     next();
 });
 
-userSchema.pre("save", async function (next) {
+merchantSchema.pre("save", async function (next) {
     // Only run if password was modified or sign up
     if (!this.isModified("password")) return next();
 
@@ -119,14 +125,14 @@ userSchema.pre("save", async function (next) {
     next();
 });
 
-userSchema.methods.comparePassword = async function (
+merchantSchema.methods.comparePassword = async function (
     inputPassword,
     userPassword
 ) {
     return await bcrypt.compare(inputPassword, userPassword);
 };
 
-userSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
+merchantSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
     if (this.passwordChangedAt) {
         const changedTimestamp = parseInt(
             this.passwordChangedAt.getTime() / 1000,
@@ -137,7 +143,7 @@ userSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
     }
 };
 
-userSchema.methods.createPasswordResetToken = function () {
+merchantSchema.methods.createPasswordResetToken = function () {
     const resetToken = crypto.randomBytes(32).toString("hex");
 
     this.passwordResetToken = crypto
@@ -149,6 +155,6 @@ userSchema.methods.createPasswordResetToken = function () {
 
     return resetToken;
 };
-const User = mongoose.model("User", userSchema);
+const Merchant = mongoose.model("Merchant", merchantSchema);
 
-module.exports = User;
+module.exports = Merchant;

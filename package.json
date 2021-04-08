@@ -1,23 +1,26 @@
 {
-  "name": "eclothes",
-  "version": "1.0.0",
-  "description": "eclothes",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "AlanNggg",
-  "license": "ISC",
-  "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "helmet": "^4.4.1",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.12.3",
-    "nodemailer": "^6.5.0",
-    "uuid": "^8.3.2",
-    "validator": "^13.5.2"
-  }
+    "name": "eclothes",
+    "version": "1.0.0",
+    "description": "eclothes",
+    "main": "server.js",
+    "scripts": {
+        "start": "nodemon server.js"
+    },
+    "author": "AlanNggg",
+    "license": "ISC",
+    "dependencies": {
+        "aws-sdk": "^2.881.0",
+        "axios": "^0.21.1",
+        "bcryptjs": "^2.4.3",
+        "cors": "^2.8.5",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "helmet": "^4.4.1",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^5.12.3",
+        "nodemailer": "^6.5.0",
+        "twilio": "^3.59.0",
+        "uuid": "^8.3.2",
+        "validator": "^13.5.2"
+    }
 }
