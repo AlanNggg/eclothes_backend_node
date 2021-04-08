@@ -8,6 +8,7 @@ const districtRoutes = require("./routes/districtRoutes");
 const userRoutes = require("./routes/userRoutes");
 const favoriteRoutes = require("./routes/favoriteRoutes");
 const commentRoutes = require("./routes/commentRoutes");
+const productCategoryRoutes = require("./routes/productCategoryRoutes");
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(express.json());
 
 app.use("/api/v1/regions", regionRoutes);
 app.use("/api/v1/districts", districtRoutes);
+app.use("/api/v1/productCategory", productCategoryRoutes);
 
 app.all("*", (req, res, next) => {
     console.log(`${req.originalUrl} NOT FOUND`);
