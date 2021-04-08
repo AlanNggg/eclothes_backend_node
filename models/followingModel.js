@@ -23,20 +23,18 @@ const followingSchema = mongoose.Schema(
     }
 );
 
-// followSchema.pre(/^find/, function (next) {
-//   this.populate({
-//     path: "follower",
-//     select: "name avator info",
-//   }).populate({
-//     path: "following",
-//     select: "name avator info",
-//   });
+followingSchema.pre(/^find/, function (next) {
+    this.populate({
+        path: "user",
+    }).populate({
+        path: "merchant",
+    });
 
-//   next();
-// });
+    next();
+});
 
 followingSchema.index({ user: 1, merchant: 1 }, { unique: true });
 
-const Following = mongoose.model("Follow", followingSchema);
+const Following = mongoose.model("Following", followingSchema);
 
 module.exports = Following;

@@ -8,6 +8,7 @@ const districtRoutes = require("./routes/districtRoutes");
 const userRoutes = require("./routes/userRoutes");
 const merchantRoutes = require("./routes/merchantRoutes");
 const favoriteRoutes = require("./routes/favoriteRoutes");
+const followingRoutes = require("./routes/followingRoutes");
 const commentRoutes = require("./routes/commentRoutes");
 const productCategoryRoutes = require("./routes/productCategoryRoutes");
 
@@ -25,6 +26,8 @@ app.use("/api/v1/districts", districtRoutes);
 app.use("/api/v1/categories", productCategoryRoutes);
 app.use("/api/v1/merchants", merchantRoutes);
 app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/followings", followingRoutes);
+app.use("/api/v1/favorites", favoriteRoutes);
 
 app.all("*", (req, res, next) => {
     console.log(`${req.originalUrl} NOT FOUND`);

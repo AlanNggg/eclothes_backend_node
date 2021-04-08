@@ -38,8 +38,9 @@ favoriteSchema.post("save", async function (doc, next) {
 
 favoriteSchema.pre(/^find/, function (next) {
     this.populate({
+        path: "user",
+    }).populate({
         path: "product",
-        select: "-__v",
     });
     next();
 });

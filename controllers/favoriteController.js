@@ -17,10 +17,7 @@ exports.getAllFavorites = async (req, res, next) => {
 
 exports.addFavorite = async (req, res, next) => {
     try {
-        const favorite = await Favorite.create({
-            user: req.user.id,
-            product: req.body.product,
-        });
+        const favorite = await Favorite.create(req.body);
 
         res.status(200).json({
             status: "success",
@@ -39,7 +36,9 @@ exports.removeFavorite = async (req, res, next) => {
 
         res.status(200).json({
             status: "success",
-            data: null,
+            data: {
+                favorite: null,
+            },
         });
     } catch (err) {
         next(err);
