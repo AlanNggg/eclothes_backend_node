@@ -6,6 +6,7 @@ const cors = require("cors");
 const regionRoutes = require("./routes/regionRoutes");
 const districtRoutes = require("./routes/districtRoutes");
 const userRoutes = require("./routes/userRoutes");
+const merchantRoutes = require("./routes/merchantRoutes");
 const favoriteRoutes = require("./routes/favoriteRoutes");
 const commentRoutes = require("./routes/commentRoutes");
 const productCategoryRoutes = require("./routes/productCategoryRoutes");
@@ -20,7 +21,9 @@ app.use(express.json());
 
 app.use("/api/v1/regions", regionRoutes);
 app.use("/api/v1/districts", districtRoutes);
-app.use("/api/v1/productCategory", productCategoryRoutes);
+// change to productCategories if there are categories other than product categories in the future
+app.use("/api/v1/categories", productCategoryRoutes);
+app.use("/api/v1/merchants", merchantRoutes);
 
 app.all("*", (req, res, next) => {
     console.log(`${req.originalUrl} NOT FOUND`);

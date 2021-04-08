@@ -15,6 +15,55 @@ exports.getAllMerchants = async (req, res, next) => {
     }
 };
 
+exports.getMerchantById = async (req, res, next) => {
+    try {
+        const merchant = await Merchant.findById(req.params.id);
+
+        res.status(200).json({
+            status: "success",
+            data: {
+                merchant,
+            },
+        });
+    } catch (err) {
+        next(err);
+    }
+};
+
+exports.getMerchantByUsername = async (req, res, next) => {
+    try {
+        const merchant = await Merchant.findOne({
+            username: req.params.name,
+        });
+
+        res.status(200).json({
+            status: "success",
+            data: {
+                merchant,
+            },
+        });
+    } catch (err) {
+        next(err);
+    }
+};
+
+exports.getMerchantByShopName = async (req, res, next) => {
+    try {
+        const merchant = await Merchant.findOne({
+            shopName: req.params.name,
+        });
+
+        res.status(200).json({
+            status: "success",
+            data: {
+                merchant,
+            },
+        });
+    } catch (err) {
+        next(err);
+    }
+};
+
 exports.deleteMerchant = async (req, res, next) => {
     try {
         const merchants = await Merchant.findByIdAndDelete(req.params.id);

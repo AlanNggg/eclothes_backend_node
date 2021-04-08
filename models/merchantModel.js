@@ -50,6 +50,12 @@ const merchantSchema = mongoose.Schema(
                 required: true,
             },
         },
+        email: {
+            type: String,
+            required: [true, "Please enter your email"],
+            unique: true,
+            trim: true,
+        },
         phone: {
             type: String,
             required: [true, "Please enter your phone number"],
@@ -57,12 +63,6 @@ const merchantSchema = mongoose.Schema(
             trim: true,
             maxlength: 16,
             minlength: 10,
-        },
-        email: {
-            type: String,
-            required: [true, "Please enter your email"],
-            unique: true,
-            trim: true,
         },
         password: {
             type: String,
@@ -108,6 +108,12 @@ const merchantSchema = mongoose.Schema(
 
 merchantSchema.pre(/^find/, function (next) {
     this.select("-__v");
+    next();
+});
+merchantSchema.pre(/^find/, function (next) {
+    this.populate({
+        path: "district",
+    });
     next();
 });
 
