@@ -32,6 +32,7 @@ exports.getMerchantById = async (req, res, next) => {
 
 exports.getMerchantByUsername = async (req, res, next) => {
     try {
+        console.log(req.params.name);
         const merchant = await Merchant.findOne({
             username: req.params.name,
         });
@@ -49,8 +50,9 @@ exports.getMerchantByUsername = async (req, res, next) => {
 
 exports.getMerchantByShopName = async (req, res, next) => {
     try {
+        console.log(req.params.shopname);
         const merchant = await Merchant.findOne({
-            shopName: req.params.name,
+            shopName: req.params.shopname,
         });
 
         res.status(200).json({
@@ -64,14 +66,15 @@ exports.getMerchantByShopName = async (req, res, next) => {
     }
 };
 
+// admin
 exports.deleteMerchant = async (req, res, next) => {
     try {
-        const merchants = await Merchant.findByIdAndDelete(req.params.id);
+        const merchant = await Merchant.findByIdAndDelete(req.params.id);
 
         res.status(200).json({
             status: "success",
             data: {
-                merchants: null,
+                merchant: null,
             },
         });
     } catch (err) {
@@ -79,7 +82,7 @@ exports.deleteMerchant = async (req, res, next) => {
     }
 };
 
-exports.UpdateMerchant = async (req, res, next) => {
+exports.updateMerchant = async (req, res, next) => {
     try {
         const updatedMerchant = await Merchant.findByIdAndUpdate(
             req.params.id,

@@ -24,6 +24,7 @@ app.use("/api/v1/districts", districtRoutes);
 // change to productCategories if there are categories other than product categories in the future
 app.use("/api/v1/categories", productCategoryRoutes);
 app.use("/api/v1/merchants", merchantRoutes);
+app.use("/api/v1/users", userRoutes);
 
 app.all("*", (req, res, next) => {
     console.log(`${req.originalUrl} NOT FOUND`);

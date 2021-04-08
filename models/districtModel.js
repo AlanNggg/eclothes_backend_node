@@ -9,6 +9,7 @@ const districtSchema = mongoose.Schema({
     district: {
         type: String,
         required: [true, "Please enter district name"],
+        unique: true,
         trim: true,
         maxlength: 30,
         minlength: 1,

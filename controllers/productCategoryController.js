@@ -17,7 +17,7 @@ exports.getAllCategories = async (req, res, next) => {
 
 exports.createCategory = async (req, res, next) => {
     try {
-        const newCategory = await Category.create({
+        const newCategory = await ProductCategory.create({
             category: req.body.category,
         });
 
@@ -34,7 +34,7 @@ exports.createCategory = async (req, res, next) => {
 
 exports.deleteCategoryById = async (req, res, next) => {
     try {
-        await Category.findByIdAndDelete(req.params.id);
+        await ProductCategory.findByIdAndDelete(req.params.id);
         res.status(200).json({
             status: "success",
             data: {
@@ -48,7 +48,7 @@ exports.deleteCategoryById = async (req, res, next) => {
 
 exports.deleteCategoryByName = async (req, res, next) => {
     try {
-        await Category.findOneAndDelete({ category: req.params.name });
+        await ProductCategory.findOneAndDelete({ category: req.params.name });
 
         res.status(200).json({
             status: "success",

@@ -6,14 +6,18 @@ const router = express.Router();
 
 router.route("/").get(merchantController.getAllMerchants);
 
-router.route("/:id").get(merchantController.getMerchantById);
+router
+    .route("/:id")
+    .get(merchantController.getMerchantById)
+    .patch(merchantController.updateMerchant)
+    .delete(merchantController.deleteMerchant);
 
 router
     .route("/by/username/:name")
     .get(merchantController.getMerchantByUsername);
 
 router
-    .route("'/by/shopname/:name'")
+    .route("/by/shopname/:shopname")
     .get(merchantController.getMerchantByShopName);
 
 module.exports = router;

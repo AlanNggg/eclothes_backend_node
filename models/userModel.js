@@ -62,11 +62,6 @@ const userSchema = mongoose.Schema(
             trim: true,
             default: "userAvator.png",
         },
-        info: {
-            type: String,
-            default: "This person is lazy.",
-            maxlength: 100,
-        },
         passwordChangedAt: Date,
         passwordResetToken: String,
         passwordResetExpires: Date,
