@@ -1,0 +1,74 @@
+[
+    {
+        "regionId": "606b5143a876e90f23fcad4b",
+        "district": "Islands"
+    },
+    {
+        "regionId": "606b5143a876e90f23fcad4b",
+        "district": "Kwai Tsing"
+    },
+    {
+        "regionId": "606b5143a876e90f23fcad4b",
+        "district": "North"
+    },
+    {
+        "regionId": "606b5143a876e90f23fcad4b",
+        "district": "Sai Kung"
+    },
+    {
+        "regionId": "606b5143a876e90f23fcad4b",
+        "district": "Sha Tin"
+    },
+    {
+        "regionId": "606b5143a876e90f23fcad4b",
+        "district": "Tai Po"
+    },
+    {
+        "regionId": "606b5143a876e90f23fcad4b",
+        "district": "Tsuen Wan"
+    },
+    {
+        "regionId": "606b5143a876e90f23fcad4b",
+        "district": "Tuen Mun"
+    },
+    {
+        "regionId": "606b5143a876e90f23fcad4b",
+        "district": "Yuen Long"
+    },
+    {
+        "regionId": "606b5132a876e90f23fcad4a",
+        "district": "Kowloon City"
+    },
+    {
+        "regionId": "606b5132a876e90f23fcad4a",
+        "district": "Kwun Tong"
+    },
+    {
+        "regionId": "606b5132a876e90f23fcad4a",
+        "district": "Sham Shui Po"
+    },
+    {
+        "regionId": "606b5132a876e90f23fcad4a",
+        "district": "Wong Tai Sin"
+    },
+    {
+        "regionId": "606b5132a876e90f23fcad4a",
+        "district": "Yau Tsim Mong"
+    },
+    {
+        "regionId": "606b5110a876e90f23fcad49",
+        "district": "Central and Western"
+    },
+    {
+        "regionId": "606b5110a876e90f23fcad49",
+        "district": "Eastern"
+    },
+    {
+        "regionId": "606b5110a876e90f23fcad49",
+        "district": "Southern"
+    },
+    {
+        "regionId": "606b5110a876e90f23fcad49",
+        "district": "Wan Chai"
+    }
+]

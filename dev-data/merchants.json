@@ -1,0 +1,146 @@
+[
+    {
+        "_id": {
+            "$oid": "606b57c8a307473eb5d3f7f7"
+        },
+        "firstName": "Alan",
+        "lastName": "Ng",
+        "username": "AlanNggg",
+        "shopName": "Apple inc.",
+        "location": {
+            "description": "Miami, Hong Kong",
+            "type": "Point",
+            "coordinates": [-80.185942, 25.774772],
+            "address": "301 Biscayne Blvd, Miami, FL 33132, Hong Kong",
+            "district": {
+                "$oid": "606b53b2a307473eb5d3f7d1"
+            }
+        },
+        "email": "apple@company.com",
+        "phone": 12345678,
+        "password": "$2a$12$uA9FsDw63v6dkJKGlLQ/8ufYBs8euB7kqIQewyYlZXU5azEKeLEky",
+        "photo": "shop-2-1.jpg",
+        "description": "We are a clothes shop",
+        "active": true
+    },
+    {
+        "_id": {
+            "$oid": "606b57c8a307473eb5d3f7f8"
+        },
+        "firstName": "Alan",
+        "lastName": "Ng",
+        "username": "AlanNggg",
+        "shopName": "Apple branch 2 inc.",
+        "location": {
+            "description": "Miami, Hong Kong",
+            "type": "Point",
+            "coordinates": [-80.185942, 25.774772],
+            "address": "301 Biscayne Blvd, Miami, FL 33132, Hong Kong",
+            "district": {
+                "$oid": "606b53b2a307473eb5d3f7d1"
+            }
+        },
+        "email": "apple@company.com",
+        "phone": 12345678,
+        "password": "$2a$12$uA9FsDw63v6dkJKGlLQ/8ufYBs8euB7kqIQewyYlZXU5azEKeLEky",
+        "photo": "shop-2-1.jpg",
+        "description": "We are a clothes shop",
+        "active": true
+    },
+    {
+        "_id": {
+            "$oid": "606b57c8a307473eb5d3f7f9"
+        },
+        "firstName": "Terry",
+        "lastName": "Fung",
+        "username": "TerryFunggg",
+        "shopName": "Orange inc.",
+        "location": {
+            "description": "Miami, Hong Kong",
+            "type": "Point",
+            "coordinates": [-80.185942, 25.774772],
+            "address": "301 Biscayne Blvd, Miami, FL 33132, Hong Kong",
+            "district": {
+                "$oid": "606b53b2a307473eb5d3f7d2"
+            }
+        },
+        "email": "orange@company.com",
+        "phone": 12345678,
+        "password": "$2a$12$uA9FsDw63v6dkJKGlLQ/8ufYBs8euB7kqIQewyYlZXU5azEKeLEky",
+        "photo": "shop-2-1.jpg",
+        "description": "We are a clothes shop",
+        "active": true
+    },
+    {
+        "_id": {
+            "$oid": "606b57c8a307473eb5d3f7fa"
+        },
+        "firstName": "Alan",
+        "lastName": "Ng",
+        "username": "AlanNggg",
+        "shopName": "Hello inc.",
+        "location": {
+            "description": "Miami, Hong Kong",
+            "type": "Point",
+            "coordinates": [-80.185942, 25.774772],
+            "address": "301 Biscayne Blvd, Miami, FL 33132, Hong Kong",
+            "district": {
+                "$oid": "606b53b2a307473eb5d3f7d3"
+            }
+        },
+        "email": "hello@company.com",
+        "phone": 12345678,
+        "password": "$2a$12$uA9FsDw63v6dkJKGlLQ/8ufYBs8euB7kqIQewyYlZXU5azEKeLEky",
+        "photo": "shop-2-1.jpg",
+        "description": "We are a clothes shop",
+        "active": true
+    },
+    {
+        "_id": {
+            "$oid": "606b57c8a307473eb5d3f7fb"
+        },
+        "firstName": "Alan",
+        "lastName": "Ng",
+        "username": "AlanNggg",
+        "shopName": "ABC inc.",
+        "location": {
+            "description": "Miami, Hong Kong",
+            "type": "Point",
+            "coordinates": [-80.185942, 25.774772],
+            "address": "301 Biscayne Blvd, Miami, FL 33132, Hong Kong",
+            "district": {
+                "$oid": "606b53b2a307473eb5d3f7d5"
+            }
+        },
+        "email": "abc@company.com",
+        "phone": 12345678,
+        "password": "$2a$12$uA9FsDw63v6dkJKGlLQ/8ufYBs8euB7kqIQewyYlZXU5azEKeLEky",
+        "photo": "shop-2-1.jpg",
+        "description": "We are a clothes shop",
+        "active": true
+    },
+    {
+        "_id": {
+            "$oid": "606b57c8a307473eb5d3f7fc"
+        },
+        "firstName": "Alan",
+        "lastName": "Ng",
+        "username": "AlanNggg",
+        "shopName": "HI inc.",
+        "location": {
+            "description": "Miami, Hong Kong",
+            "type": "Point",
+            "coordinates": [-80.185942, 25.774772],
+            "address": "301 Biscayne Blvd, Miami, FL 33132, Hong Kong",
+            "district": {
+                "$oid": "606b53b2a307473eb5d3f7d5"
+            }
+        },
+        "email": "hi@company.com",
+        "phone": 12345678,
+        "password": "$2a$12$uA9FsDw63v6dkJKGlLQ/8ufYBs8euB7kqIQewyYlZXU5azEKeLEky",
+        "photo": "shop-2-1.jpg",
+        "description": "We are a clothes shop",
+        "active": true
+    }
+]

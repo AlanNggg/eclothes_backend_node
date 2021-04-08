@@ -1,0 +1,27 @@
+[
+    {
+        "_id": "1",
+        "userId": "1",
+        "shopId": "2"
+    },
+    {
+        "_id": "2",
+        "userId": "1",
+        "shopId": "3"
+    },
+    {
+        "_id": "3",
+        "userId": "2",
+        "shopId": "1"
+    },
+    {
+        "_id": "4",
+        "userId": "3",
+        "shopId": "2"
+    },
+    {
+        "_id": "4",
+        "userId": "5",
+        "shopId": "1"
+    }
+]

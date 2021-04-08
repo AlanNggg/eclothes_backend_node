@@ -1,0 +1,26 @@
+[{
+  "_id": {
+    "$oid": "606b591ea307473eb5d3f7fd"
+  },
+  "category": "t-shirt"
+},{
+  "_id": {
+    "$oid": "606b591ea307473eb5d3f7fe"
+  },
+  "category": "jeans"
+},{
+  "_id": {
+    "$oid": "606b591ea307473eb5d3f7ff"
+  },
+  "category": "pants"
+},{
+  "_id": {
+    "$oid": "606b591ea307473eb5d3f800"
+  },
+  "category": "dresses"
+},{
+  "_id": {
+    "$oid": "606b591ea307473eb5d3f801"
+  },
+  "category": "shorts"
+}]

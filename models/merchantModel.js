@@ -2,6 +2,8 @@ const crypto = require("crypto"); // built-in
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 
+const locationSchema = require("./locationModel");
+
 // lastName, firstName & username for 商店管理者
 // shopName 商店名
 const merchantSchema = mongoose.Schema(
@@ -110,12 +112,12 @@ merchantSchema.pre(/^find/, function (next) {
     this.select("-__v");
     next();
 });
-merchantSchema.pre(/^find/, function (next) {
-    this.populate({
-        path: "location.district",
-    });
-    next();
-});
+// merchantSchema.pre(/^find/, function (next) {
+//     this.populate({
+//         path: "location.district",
+//     });
+//     next();
+// });
 
 merchantSchema.pre("save", async function (next) {
     // Only run if password was modified or sign up

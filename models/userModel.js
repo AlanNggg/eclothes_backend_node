@@ -2,6 +2,8 @@ const crypto = require("crypto"); // built-in
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 
+const locationSchema = require("./locationModel");
+
 const userSchema = mongoose.Schema(
     {
         firstName: {
@@ -70,6 +72,10 @@ const userSchema = mongoose.Schema(
             default: true,
             select: false,
         },
+        shippingAddress: {
+            type: locationSchema,
+            select: false,
+        },
     },
     {
         toJSON: { virtuals: true },
@@ -79,6 +85,11 @@ const userSchema = mongoose.Schema(
 
 userSchema.pre(/^find/, function (next) {
     this.select("-__v");
+    next();
+});
+
+userSchema.pre(/^find/, function (next) {
+    this.populate("shippingAddress.district");
     next();
 });
 

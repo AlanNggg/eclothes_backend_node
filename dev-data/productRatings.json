@@ -1,0 +1,38 @@
+[
+    {
+        "userId": "606b5638a307473eb5d3f7e4",
+        "productId": "606c670a2b63e377cfc70461",
+        "rating": 5,
+        "createdAt": "2020-10-28T10:00:00.000Z"
+    },
+    {
+        "userId": "606b5638a307473eb5d3f7e5",
+        "productId": "606c670a2b63e377cfc70461",
+        "rating": 5,
+        "createdAt": "2020-10-28T10:00:00.000Z"
+    },
+    {
+        "userId": "606b5638a307473eb5d3f7e5",
+        "productId": "606c670a2b63e377cfc70462",
+        "rating": 5,
+        "createdAt": "2020-10-28T10:00:00.000Z"
+    },
+    {
+        "userId": "606b5638a307473eb5d3f7e6",
+        "productId": "606c670a2b63e377cfc70462",
+        "rating": 5,
+        "createdAt": "2020-10-28T10:00:00.000Z"
+    },
+    {
+        "userId": "606b5638a307473eb5d3f7e6",
+        "productId": "606c670a2b63e377cfc70463",
+        "rating": 5,
+        "createdAt": "2020-10-28T10:00:00.000Z"
+    },
+    {
+        "userId": "606b5638a307473eb5d3f7e4",
+        "productId": "606c670a2b63e377cfc70465",
+        "rating": 5,
+        "createdAt": "2020-10-28T10:00:00.000Z"
+    }
+]

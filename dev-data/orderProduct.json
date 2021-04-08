@@ -1,0 +1,62 @@
+[
+    {
+        "_id": "1",
+        "orderId": "1",
+        "productId": "1",
+        "quantity": 2,
+        "options": {
+            "color": "red",
+            "size": "XS"
+        }
+    },
+    {
+        "_id": "2",
+        "orderId": "1",
+        "productId": "1",
+        "quantity": 1,
+        "options": {
+            "color": "blue",
+            "size": "XS"
+        }
+    },
+    {
+        "_id": "3",
+        "orderId": "2",
+        "productId": "2",
+        "quantity": 1,
+        "options": {
+            "color": "blue",
+            "size": "XS"
+        }
+    },
+    {
+        "_id": "4",
+        "orderId": "3",
+        "productId": "5",
+        "quantity": 1,
+        "options": {
+            "color": "blue",
+            "size": "XS"
+        }
+    },
+    {
+        "_id": "5",
+        "orderId": "4",
+        "productId": "3",
+        "quantity": 1,
+        "options": {
+            "color": "blue",
+            "size": "XS"
+        }
+    },
+    {
+        "_id": "6",
+        "orderId": "5",
+        "productId": "2",
+        "quantity": 1,
+        "options": {
+            "color": "blue",
+            "size": "XS"
+        }
+    }
+]

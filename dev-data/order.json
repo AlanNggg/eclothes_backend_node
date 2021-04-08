@@ -1,0 +1,82 @@
+[
+    {
+        "_id": "1",
+        "userId": "1",
+        "shopId": "1",
+        "status": "waiting",
+        "shippedAt": "2020-10-28T10:00:00.000Z",
+        "createdAt": "2020-10-28T10:00:00.000Z",
+        // optional
+        "shippingAddress": {
+            "description": "Miami, USA",
+            "type": "Point",
+            "coordinates": [-80.185942, 25.774772],
+            "address": "301 Biscayne Blvd, Miami, FL 33132, USA",
+            "districtId": "1"
+        }
+    },
+    {
+        "_id": "2",
+        "userId": "2",
+        "shopId": "2",
+        "status": "waiting",
+        "shippedAt": "2020-10-28T10:00:00.000Z",
+        "createdAt": "2020-10-28T10:00:00.000Z",
+        // optional
+        "shippingAddress": {
+            "description": "Miami, USA",
+            "type": "Point",
+            "coordinates": [-80.185942, 25.774772],
+            "address": "301 Biscayne Blvd, Miami, FL 33132, USA",
+            "districtId": "1"
+        }
+    },
+    {
+        "_id": "3",
+        "userId": "3",
+        "shopId": "1",
+        "status": "waiting",
+        "shippedAt": "2020-10-28T10:00:00.000Z",
+        "createdAt": "2020-10-28T10:00:00.000Z",
+        // optional
+        "shippingAddress": {
+            "description": "Miami, USA",
+            "type": "Point",
+            "coordinates": [-80.185942, 25.774772],
+            "address": "301 Biscayne Blvd, Miami, FL 33132, USA",
+            "districtId": "1"
+        }
+    },
+    {
+        "_id": "4",
+        "userId": "4",
+        "shopId": "3",
+        "status": "waiting",
+        "shippedAt": "2020-10-28T10:00:00.000Z",
+        "createdAt": "2020-10-28T10:00:00.000Z",
+        // optional
+        "shippingAddress": {
+            "description": "Miami, USA",
+            "type": "Point",
+            "coordinates": [-80.185942, 25.774772],
+            "address": "301 Biscayne Blvd, Miami, FL 33132, USA",
+            "districtId": "1"
+        }
+    },
+    {
+        "_id": "5",
+        "userId": "5",
+        "shopId": "5",
+        "status": "waiting",
+        "shippedAt": "2020-10-28T10:00:00.000Z",
+        "createdAt": "2020-10-28T10:00:00.000Z",
+        // optional
+        "shippingAddress": {
+            "description": "Miami, USA",
+            "type": "Point",
+            "coordinates": [-80.185942, 25.774772],
+            "address": "301 Biscayne Blvd, Miami, FL 33132, USA",
+            "districtId": "1"
+        }
+    }
+]
