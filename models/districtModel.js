@@ -19,7 +19,6 @@ const districtSchema = mongoose.Schema({
 districtSchema.pre(/^find/, function (next) {
     this.populate({
         path: "region",
-        select: "-__v",
     });
 
     next();

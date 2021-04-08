@@ -33,7 +33,6 @@ commentSchema.post("save", async function (doc, next) {
     await doc
         .populate({
             path: "product",
-            select: "-__v",
         })
         .populate({
             path: "user",
@@ -45,7 +44,9 @@ commentSchema.post("save", async function (doc, next) {
 });
 
 commentSchema.pre(/^find/, function (next) {
-    this.select("-__v").populate({
+    this.populate({
+        path: "product",
+    }).populate({
         path: "user",
         select:
             "-email -passwordChangedAt -passwordResetExpires -passwordResetToken",

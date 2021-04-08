@@ -84,11 +84,6 @@ const userSchema = mongoose.Schema(
 );
 
 userSchema.pre(/^find/, function (next) {
-    this.select("-__v");
-    next();
-});
-
-userSchema.pre(/^find/, function (next) {
     this.populate("shippingAddress.district");
     next();
 });

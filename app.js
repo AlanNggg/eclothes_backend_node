@@ -28,6 +28,7 @@ app.use("/api/v1/categories", productCategoryRoutes);
 app.use("/api/v1/merchants", merchantRoutes);
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/products", productRoutes);
+app.use("/api/v1/comments", commentRoutes);
 app.use("/api/v1/followings", followingRoutes);
 app.use("/api/v1/favorites", favoriteRoutes);
 

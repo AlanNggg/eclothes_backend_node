@@ -30,7 +30,6 @@ favoriteSchema.post("save", async function (doc, next) {
     await doc
         .populate({
             path: "product",
-            select: "-__v",
         })
         .execPopulate();
     next();

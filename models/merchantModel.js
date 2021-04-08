@@ -99,11 +99,6 @@ const merchantSchema = mongoose.Schema(
 );
 
 merchantSchema.pre(/^find/, function (next) {
-    this.select("-__v");
-    next();
-});
-
-merchantSchema.pre(/^find/, function (next) {
     this.populate({
         path: "location.district",
     });
