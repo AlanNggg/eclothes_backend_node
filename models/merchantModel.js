@@ -39,18 +39,7 @@ const merchantSchema = mongoose.Schema(
             minlength: 1,
         },
         location: {
-            type: {
-                type: String,
-                default: "Point",
-                enum: ["Point"],
-            },
-            coordinates: [Number],
-            address: String,
-            district: {
-                type: mongoose.Types.ObjectId,
-                ref: "District",
-                required: true,
-            },
+            type: locationSchema,
         },
         email: {
             type: String,
