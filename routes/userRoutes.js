@@ -1,4 +1,5 @@
 const express = require("express");
+const multer = require("multer");
 const userController = require("../controllers/userController");
 const userAuthController = require("../controllers/userAuthController");
 
@@ -20,6 +21,7 @@ router
     .patch(
         "/me",
         userAuthController.authorization,
+        userController.uploadPhoto,
         userController.updateCurrentUser
     )
     .delete(userAuthController.authorization, userController.deleteCurrentUser);

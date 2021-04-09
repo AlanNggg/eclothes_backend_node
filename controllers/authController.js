@@ -1,3 +1,4 @@
+const { promisify } = require("util");
 const jwt = require("jsonwebtoken");
 const ErrorResponse = require("../lib/ErrorResponse");
 const catchError = require("../lib/catchError");
