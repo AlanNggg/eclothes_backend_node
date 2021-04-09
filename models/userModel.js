@@ -97,7 +97,7 @@ const userSchema = mongoose.Schema(
 );
 
 userSchema.pre(/^find/, function (next) {
-    this.populate("shippingAddress.district");
+    this.find({ active: { $ne: false } }).populate("shippingAddress.district");
     next();
 });
 

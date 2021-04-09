@@ -1,3 +1,4 @@
+const multer = require("multer");
 const Product = require("../models/productModel");
 const API = require("../lib/API");
 

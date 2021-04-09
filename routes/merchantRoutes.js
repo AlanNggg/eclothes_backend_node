@@ -8,6 +8,23 @@ const router = express.Router();
 router.post("/register", merchantAuthController.register);
 router.post("/login", merchantAuthController.login);
 
+router.patch(
+    "/me/update-password",
+    merchantAuthController.authorization,
+    merchantAuthController.updatePassword
+);
+
+router
+    .patch(
+        "/me",
+        merchantAuthController.authorization,
+        merchantController.updateCurrentMerchant
+    )
+    .delete(
+        merchantAuthController.authorization,
+        merchantController.deleteCurrentMerchant
+    );
+
 router.route("/").get(merchantController.getAllMerchants);
 
 router

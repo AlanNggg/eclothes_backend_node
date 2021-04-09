@@ -77,3 +77,5 @@ exports.forgotPassword = catchError(async (req, res, next) => {
 });
 
 exports.resetPassword = authController.resetPassword(User);
+
+exports.updatePassword = authController.updatePassword(User);

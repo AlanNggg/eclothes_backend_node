@@ -24,3 +24,5 @@ exports.login = authController.login(Merchant);
 exports.authorization = authController.authorization(Merchant);
 
 exports.resetPassword = authController.resetPassword(Merchant);
+
+exports.updatePassword = authController.updatePassword(Merchant);

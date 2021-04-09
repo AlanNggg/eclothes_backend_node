@@ -102,7 +102,7 @@ const merchantSchema = mongoose.Schema(
 );
 
 merchantSchema.pre(/^find/, function (next) {
-    this.populate({
+    this.find({ active: { $ne: false } }).populate({
         path: "location.district",
     });
     next();
