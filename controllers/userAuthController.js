@@ -4,11 +4,6 @@ const authController = require("../controllers/authController");
 const ErrorResponse = require("../lib/ErrorResponse");
 const catchError = require("../lib/catchError");
 
-const createToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_SECRET, {
-        expiresIn: process.env.JWT_EXPIRES_IN,
-    });
-};
 exports.register = catchError(async (req, res, next) => {
     const newUser = await User.create({
         firstName: req.body.firstName,
@@ -18,15 +13,7 @@ exports.register = catchError(async (req, res, next) => {
         passwordConfirm: req.body.passwordConfirm,
     });
 
-    const token = createToken(newUser._id);
-
-    res.status(201).json({
-        status: "success",
-        token,
-        data: {
-            user: newUser,
-        },
-    });
+    authController.sendToken(newUser, 201, res);
 });
 
 exports.login = authController.login(User);

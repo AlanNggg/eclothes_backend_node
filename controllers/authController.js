@@ -8,6 +8,18 @@ const createToken = (id) => {
     });
 };
 
+exports.sendToken = (user, statusCode, res) => {
+    const token = createToken(user._id);
+
+    res.status(statusCode).json({
+        status: "success",
+        token,
+        data: {
+            user,
+        },
+    });
+};
+
 exports.login = (Model) =>
     catchError(async (req, res, next) => {
         const { email, password } = req.body;
@@ -22,15 +34,7 @@ exports.login = (Model) =>
             return next(new ErrorResponse("Incorrect email or password", 401));
         }
 
-        const token = createToken(user._id);
-
-        res.status(200).json({
-            status: "success",
-            token,
-            data: {
-                user,
-            },
-        });
+        this.sendToken(user, 200, res);
     });
 
 exports.authorization = (Model) =>
@@ -78,6 +82,28 @@ exports.authorization = (Model) =>
         next();
     });
 
+exports.updatePassword = (Model) =>
+    catchError(async (req, res, next) => {
+        const user = await Model.findById(req.user.id).select("+password");
+
+        if (
+            !(await user.comparePassword(
+                req.body.passwordCurrent,
+                user.password
+            ))
+        ) {
+            return next(
+                new ErrorResponse("Your current password is wrong.", 401)
+            );
+        }
+
+        user.password = req.body.password;
+        user.passwordConfirm = req.body.passwordConfirm;
+        await user.save();
+
+        this.sendToken(user, 200, res);
+    });
+
 exports.resetPassword = (Model) =>
     catchError(async (req, res, next) => {
         const hashedToken = crypto
@@ -102,5 +128,5 @@ exports.resetPassword = (Model) =>
 
         await user.save();
 
-        createToken(user, 200, res);
+        this.sendToken(user, 200, res);
     });
