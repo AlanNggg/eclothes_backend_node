@@ -1,62 +1,48 @@
 const District = require("../models/districtModel");
 
-exports.getAllDistricts = async (req, res, next) => {
-    try {
-        const districts = await District.find();
+const catchError = require("../lib/catchError");
 
-        res.status(200).json({
-            status: "success",
-            data: {
-                districts,
-            },
-        });
-    } catch (err) {
-        next(err);
-    }
-};
+exports.getAllDistricts = catchError(async (req, res, next) => {
+    const districts = await District.find();
 
-exports.createDistrict = async (req, res, next) => {
-    try {
-        const newDistrict = await District.create({
-            district: req.body.district,
-        });
+    res.status(200).json({
+        status: "success",
+        data: {
+            districts,
+        },
+    });
+});
 
-        res.status(200).json({
-            status: "success",
-            data: {
-                district: newDistrict,
-            },
-        });
-    } catch (err) {
-        next(err);
-    }
-};
+exports.createDistrict = catchError(async (req, res, next) => {
+    const newDistrict = await District.create({
+        district: req.body.district,
+    });
 
-exports.deleteDistrictById = async (req, res, next) => {
-    try {
-        await District.findByIdAndDelete(req.params.id);
-        res.status(200).json({
-            status: "success",
-            data: {
-                district: null,
-            },
-        });
-    } catch (err) {
-        next(err);
-    }
-};
+    res.status(200).json({
+        status: "success",
+        data: {
+            district: newDistrict,
+        },
+    });
+});
 
-exports.deleteDistrictByName = async (req, res, next) => {
-    try {
-        await District.findOneAndDelete({ region: req.params.name });
+exports.deleteDistrictById = catchError(async (req, res, next) => {
+    await District.findByIdAndDelete(req.params.id);
+    res.status(200).json({
+        status: "success",
+        data: {
+            district: null,
+        },
+    });
+});
 
-        res.status(200).json({
-            status: "success",
-            data: {
-                district: null,
-            },
-        });
-    } catch (err) {
-        next(err);
-    }
-};
+exports.deleteDistrictByName = catchError(async (req, res, next) => {
+    await District.findOneAndDelete({ region: req.params.name });
+
+    res.status(200).json({
+        status: "success",
+        data: {
+            district: null,
+        },
+    });
+});

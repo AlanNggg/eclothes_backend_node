@@ -1,6 +1,7 @@
 const crypto = require("crypto"); // built-in
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
+const validator = require("validator");
 
 const locationSchema = require("./locationModel");
 
@@ -46,6 +47,8 @@ const merchantSchema = mongoose.Schema(
             required: [true, "Please enter your email"],
             unique: true,
             trim: true,
+            lowercase: true,
+            validate: [validator.isEmail, "Please provide a valid email"],
         },
         phone: {
             type: String,

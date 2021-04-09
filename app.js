@@ -3,6 +3,8 @@ const express = require("express");
 const helmet = require("helmet");
 const cors = require("cors");
 
+const ErrorResponse = require("./lib/ErrorResponse");
+const ErrorHandler = require("./controllers/errorController");
 const regionRoutes = require("./routes/regionRoutes");
 const districtRoutes = require("./routes/districtRoutes");
 const userRoutes = require("./routes/userRoutes");
@@ -33,17 +35,9 @@ app.use("/api/v1/followings", followingRoutes);
 app.use("/api/v1/favorites", favoriteRoutes);
 
 app.all("*", (req, res, next) => {
-    console.log(`${req.originalUrl} NOT FOUND`);
+    next(new ErrorResponse(`${req.originalUrl} NOT FOUND`, 404));
 });
 
-app.use((err, req, res, next) => {
-    err.statusCode = err.statusCode || 500;
-    res.status(err.statusCode).json({
-        status: err.status,
-        err,
-        message: err.message,
-        stack: err.stack,
-    });
-});
+app.use(ErrorHandler);
 
 module.exports = app;

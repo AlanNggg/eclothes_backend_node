@@ -1,62 +1,48 @@
 const Comment = require("../models/commentModel");
 
-exports.getAllComments = async (req, res, next) => {
-    try {
-        const comments = await Comment.find();
+const catchError = require("../lib/catchError");
 
-        res.status(200).json({
-            status: "success",
-            results: comments.length,
-            data: {
-                comments,
-            },
-        });
-    } catch (err) {
-        next(err);
-    }
-};
+exports.getAllComments = catchError(async (req, res, next) => {
+    const comments = await Comment.find();
 
-exports.getComment = async (req, res, next) => {
-    try {
-        const comment = await Comment.findById(req.params.id);
+    res.status(200).json({
+        status: "success",
+        results: comments.length,
+        data: {
+            comments,
+        },
+    });
+});
 
-        res.status(200).json({
-            status: "success",
-            data: {
-                comment,
-            },
-        });
-    } catch (err) {
-        next(err);
-    }
-};
+exports.getComment = catchError(async (req, res, next) => {
+    const comment = await Comment.findById(req.params.id);
 
-exports.createComment = async (req, res, next) => {
-    try {
-        const comment = await Comment.create(req.body);
+    res.status(200).json({
+        status: "success",
+        data: {
+            comment,
+        },
+    });
+});
 
-        res.status(200).json({
-            status: "success",
-            data: {
-                comment,
-            },
-        });
-    } catch (err) {
-        next(err);
-    }
-};
+exports.createComment = catchError(async (req, res, next) => {
+    const comment = await Comment.create(req.body);
 
-exports.deleteComment = async (req, res, next) => {
-    try {
-        await Comment.findByIdAndDelete(req.params.id);
+    res.status(200).json({
+        status: "success",
+        data: {
+            comment,
+        },
+    });
+});
 
-        res.status(200).json({
-            status: "success",
-            data: {
-                comment: null,
-            },
-        });
-    } catch (err) {
-        next(err);
-    }
-};
+exports.deleteComment = catchError(async (req, res, next) => {
+    await Comment.findByIdAndDelete(req.params.id);
+
+    res.status(200).json({
+        status: "success",
+        data: {
+            comment: null,
+        },
+    });
+});

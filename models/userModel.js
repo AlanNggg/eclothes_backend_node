@@ -1,6 +1,7 @@
 const crypto = require("crypto"); // built-in
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
+const validator = require("validator");
 
 const locationSchema = require("./locationModel");
 
@@ -41,6 +42,8 @@ const userSchema = mongoose.Schema(
             required: [true, "Please enter your email"],
             unique: true,
             trim: true,
+            lowercase: true,
+            validate: [validator.isEmail, "Please provide a valid email"],
         },
         password: {
             type: String,
@@ -63,6 +66,11 @@ const userSchema = mongoose.Schema(
             type: String,
             trim: true,
             default: "userAvator.png",
+        },
+        role: {
+            type: String,
+            enum: ["user", "admin"],
+            default: "user",
         },
         passwordChangedAt: Date,
         passwordResetToken: String,
@@ -132,6 +140,7 @@ userSchema.methods.createPasswordResetToken = function () {
 
     return resetToken;
 };
+
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;

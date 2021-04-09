@@ -1,62 +1,48 @@
 const ProductCategory = require("../models/productCategoryModel");
 
-exports.getAllCategories = async (req, res, next) => {
-    try {
-        const categories = await ProductCategory.find();
+const catchError = require("../lib/catchError");
 
-        res.status(200).json({
-            status: "success",
-            data: {
-                categories,
-            },
-        });
-    } catch (err) {
-        next(err);
-    }
-};
+exports.getAllCategories = catchError(async (req, res, next) => {
+    const categories = await ProductCategory.find();
 
-exports.createCategory = async (req, res, next) => {
-    try {
-        const newCategory = await ProductCategory.create({
-            category: req.body.category,
-        });
+    res.status(200).json({
+        status: "success",
+        data: {
+            categories,
+        },
+    });
+});
 
-        res.status(200).json({
-            status: "success",
-            data: {
-                category: newCategory,
-            },
-        });
-    } catch (err) {
-        next(err);
-    }
-};
+exports.createCategory = catchError(async (req, res, next) => {
+    const newCategory = await ProductCategory.create({
+        category: req.body.category,
+    });
 
-exports.deleteCategoryById = async (req, res, next) => {
-    try {
-        await ProductCategory.findByIdAndDelete(req.params.id);
-        res.status(200).json({
-            status: "success",
-            data: {
-                category: null,
-            },
-        });
-    } catch (err) {
-        next(err);
-    }
-};
+    res.status(200).json({
+        status: "success",
+        data: {
+            category: newCategory,
+        },
+    });
+});
 
-exports.deleteCategoryByName = async (req, res, next) => {
-    try {
-        await ProductCategory.findOneAndDelete({ category: req.params.name });
+exports.deleteCategoryById = catchError(async (req, res, next) => {
+    await ProductCategory.findByIdAndDelete(req.params.id);
+    res.status(200).json({
+        status: "success",
+        data: {
+            category: null,
+        },
+    });
+});
 
-        res.status(200).json({
-            status: "success",
-            data: {
-                category: null,
-            },
-        });
-    } catch (err) {
-        next(err);
-    }
-};
+exports.deleteCategoryByName = catchError(async (req, res, next) => {
+    await ProductCategory.findOneAndDelete({ category: req.params.name });
+
+    res.status(200).json({
+        status: "success",
+        data: {
+            category: null,
+        },
+    });
+});

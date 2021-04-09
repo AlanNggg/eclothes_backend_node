@@ -1,107 +1,85 @@
 const Merchant = require("../models/merchantModel");
 
-exports.getAllMerchants = async (req, res, next) => {
-    try {
-        const merchants = await Merchant.find();
+const catchError = require("../lib/catchError");
 
-        res.status(200).json({
-            status: "success",
-            data: {
-                merchants,
-            },
-        });
-    } catch (err) {
-        next(err);
-    }
-};
+exports.getAllMerchants = catchError(async (req, res, next) => {
+    const merchants = await Merchant.find();
 
-exports.getMerchantById = async (req, res, next) => {
-    try {
-        const merchant = await Merchant.findById(req.params.id);
+    res.status(200).json({
+        status: "success",
+        data: {
+            merchants,
+        },
+    });
+});
 
-        res.status(200).json({
-            status: "success",
-            data: {
-                merchant,
-            },
-        });
-    } catch (err) {
-        next(err);
-    }
-};
+exports.getMerchantById = catchError(async (req, res, next) => {
+    const merchant = await Merchant.findById(req.params.id);
 
-exports.getMerchantByUsername = async (req, res, next) => {
-    try {
-        console.log(req.params.name);
-        const merchant = await Merchant.findOne({
-            username: req.params.name,
-        });
+    res.status(200).json({
+        status: "success",
+        data: {
+            merchant,
+        },
+    });
+});
 
-        res.status(200).json({
-            status: "success",
-            data: {
-                merchant,
-            },
-        });
-    } catch (err) {
-        next(err);
-    }
-};
+exports.getMerchantByUsername = catchError(async (req, res, next) => {
+    console.log(req.params.name);
+    const merchant = await Merchant.findOne({
+        username: req.params.name,
+    });
 
-exports.getMerchantByShopName = async (req, res, next) => {
-    try {
-        console.log(req.params.shopname);
-        const merchant = await Merchant.findOne({
-            shopName: req.params.shopname,
-        });
+    res.status(200).json({
+        status: "success",
+        data: {
+            merchant,
+        },
+    });
+});
 
-        res.status(200).json({
-            status: "success",
-            data: {
-                merchant,
-            },
-        });
-    } catch (err) {
-        next(err);
-    }
-};
+exports.getMerchantByShopName = catchError(async (req, res, next) => {
+    console.log(req.params.shopname);
+    const merchant = await Merchant.findOne({
+        shopName: req.params.shopname,
+    });
+
+    res.status(200).json({
+        status: "success",
+        data: {
+            merchant,
+        },
+    });
+});
 
 // admin
-exports.deleteMerchant = async (req, res, next) => {
-    try {
-        const merchant = await Merchant.findByIdAndDelete(req.params.id);
+exports.deleteMerchant = catchError(async (req, res, next) => {
+    const merchant = await Merchant.findByIdAndDelete(req.params.id);
 
-        res.status(200).json({
-            status: "success",
-            data: {
-                merchant: null,
-            },
-        });
-    } catch (err) {
-        next(err);
-    }
-};
+    res.status(200).json({
+        status: "success",
+        data: {
+            merchant: null,
+        },
+    });
+});
 
-exports.updateMerchant = async (req, res, next) => {
-    try {
-        const updatedMerchant = await Merchant.findByIdAndUpdate(
-            req.params.id,
-            req.body,
-            {
-                new: true,
-                runValidators: true,
-            }
-        );
+exports.updateMerchant = catchError(async (req, res, next) => {
+    const updatedMerchant = await Merchant.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        {
+            new: true,
+            runValidators: true,
+        }
+    );
 
-        res.status(200).json({
-            status: "success",
-            data: {
-                merchant: updatedMerchant,
-            },
-        });
-    } catch (err) {
-        next(err);
-    }
-};
+    res.status(200).json({
+        status: "success",
+        data: {
+            merchant: updatedMerchant,
+        },
+    });
+});
 
 exports.deleteMerchant = async (req, res, next) => {};

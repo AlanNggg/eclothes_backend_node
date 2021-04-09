@@ -1,6 +1,7 @@
 const express = require("express");
 const merchantController = require("../controllers/merchantController");
 const merchantAuthController = require("../controllers/merchantAuthController");
+const userAuthController = require("../controllers/userAuthController");
 
 const router = express.Router();
 
@@ -12,8 +13,16 @@ router.route("/").get(merchantController.getAllMerchants);
 router
     .route("/:id")
     .get(merchantController.getMerchantById)
-    .patch(merchantController.updateMerchant)
-    .delete(merchantController.deleteMerchant);
+    .patch(
+        userAuthController.authorization,
+        userAuthController.allow("admin"),
+        merchantController.updateMerchant
+    )
+    .delete(
+        userAuthController.authorization,
+        userAuthController.allow("admin"),
+        merchantController.deleteMerchant
+    );
 
 router
     .route("/by/username/:name")
