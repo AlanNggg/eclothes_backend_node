@@ -4,7 +4,7 @@ const districtSchema = mongoose.Schema({
     region: {
         type: mongoose.Types.ObjectId,
         ref: "Region",
-        required: true,
+        required: [true, "Region cannot be empty"],
     },
     district: {
         type: String,

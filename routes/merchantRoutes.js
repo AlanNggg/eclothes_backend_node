@@ -1,8 +1,11 @@
 const express = require("express");
 const merchantController = require("../controllers/merchantController");
-const authController = require("../controllers/authController");
+const merchantAuthController = require("../controllers/merchantAuthController");
 
 const router = express.Router();
+
+router.post("/register", merchantAuthController.register);
+router.post("/login", merchantAuthController.login);
 
 router.route("/").get(merchantController.getAllMerchants);
 

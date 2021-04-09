@@ -2,6 +2,13 @@ const mongoose = require("mongoose");
 
 const productSchema = mongoose.Schema(
     {
+        name: {
+            type: String,
+            trim: true,
+            required: true,
+            maxlength: 100,
+            minlength: 1,
+        },
         merchant: {
             type: mongoose.Types.ObjectId,
             ref: "Merchant",
@@ -17,12 +24,14 @@ const productSchema = mongoose.Schema(
             required: [true, "A product must have a price"],
         },
         options: {
-            color: [String],
-            size: [String],
+            color: [{ type: String, trim: true }],
+            size: [{ type: String, trim: true }],
         },
         style: {
             type: String,
+            trim: true,
             maxlength: 20,
+            minlength: 1,
         },
         ratingsAverage: {
             type: Number,

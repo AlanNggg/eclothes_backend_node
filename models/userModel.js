@@ -22,7 +22,7 @@ const userSchema = mongoose.Schema(
         },
         username: {
             type: String,
-            required: [true, "Please enter your username"],
+            // required: [true, "Please enter your username"],
             unique: true,
             trim: true,
             maxlength: 20,
@@ -30,7 +30,7 @@ const userSchema = mongoose.Schema(
         },
         phone: {
             type: String,
-            required: [true, "Please enter your phone number"],
+            // required: [true, "Please enter your phone number"],
             unique: true,
             trim: true,
             maxlength: 16,

@@ -4,17 +4,17 @@ const commentSchema = mongoose.Schema(
     {
         user: {
             type: mongoose.Types.ObjectId,
-            required: true,
+            required: [true, "Comment must belong to a user"],
             ref: "User",
         },
         product: {
             type: mongoose.Types.ObjectId,
             ref: "Product",
-            required: true,
+            required: [true, "Comment must belong to a product"],
         },
         comment: {
             type: String,
-            required: true,
+            required: [true, "Comment cannot be empty"],
             maxlength: 100,
         },
         createdAt: {

@@ -5,12 +5,12 @@ const favoriteSchema = mongoose.Schema(
         user: {
             type: mongoose.Types.ObjectId,
             ref: "User",
-            required: true,
+            required: [true, "Favorite must belong to a user"],
         },
         product: {
             type: mongoose.Types.ObjectId,
             ref: "Product",
-            required: true,
+            required: [true, "Favorite must belong to a product"],
         },
         createdAt: {
             type: Date,

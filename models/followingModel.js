@@ -5,12 +5,12 @@ const followingSchema = mongoose.Schema(
         user: {
             type: mongoose.Types.ObjectId,
             ref: "User",
-            required: true,
+            required: [true, "Following must belong to a user"],
         },
         merchant: {
             type: mongoose.Types.ObjectId,
             ref: "Merchant",
-            required: true,
+            required: [true, "Following must belong to a merchant"],
         },
         createdAt: {
             type: Date,

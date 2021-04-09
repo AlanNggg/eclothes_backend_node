@@ -1,9 +1,15 @@
 const Product = require("../models/productModel");
+const API = require("../lib/API");
 
 // public
 exports.getAllProducts = async (req, res, next) => {
     try {
-        const products = await Product.find();
+        const api = new API(Product.find(), req.query)
+            .filter()
+            .sort()
+            .select()
+            .paginate();
+        const products = await api.query;
 
         res.status(200).json({
             status: "success",
