@@ -8,7 +8,9 @@ exports.register = catchError(async (req, res, next) => {
     const newUser = await User.create({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
+        gender: req.body.gender,
         email: req.body.email,
+        phone: req.body.phone,
         password: req.body.password,
         passwordConfirm: req.body.passwordConfirm,
     });

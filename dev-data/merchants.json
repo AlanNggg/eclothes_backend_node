@@ -17,8 +17,8 @@
             }
         },
         "email": "apple@company.com",
-        "phone": 12345678,
-        "password": "$2a$12$uA9FsDw63v6dkJKGlLQ/8ufYBs8euB7kqIQewyYlZXU5azEKeLEky",
+        "phone": "12345678",
+        "password": "ng123456",
         "photo": "shop-2-1.jpg",
         "description": "We are a clothes shop",
         "active": true
@@ -41,8 +41,8 @@
             }
         },
         "email": "apple@company.com",
-        "phone": 12345678,
-        "password": "$2a$12$uA9FsDw63v6dkJKGlLQ/8ufYBs8euB7kqIQewyYlZXU5azEKeLEky",
+        "phone": "12345638",
+        "password": "ng123456",
         "photo": "shop-2-1.jpg",
         "description": "We are a clothes shop",
         "active": true
@@ -65,8 +65,8 @@
             }
         },
         "email": "orange@company.com",
-        "phone": 12345678,
-        "password": "$2a$12$uA9FsDw63v6dkJKGlLQ/8ufYBs8euB7kqIQewyYlZXU5azEKeLEky",
+        "phone": "12335678",
+        "password": "ng123456",
         "photo": "shop-2-1.jpg",
         "description": "We are a clothes shop",
         "active": true
@@ -90,7 +90,7 @@
         },
         "email": "hello@company.com",
         "phone": 12345678,
-        "password": "$2a$12$uA9FsDw63v6dkJKGlLQ/8ufYBs8euB7kqIQewyYlZXU5azEKeLEky",
+        "password": "ng123456",
         "photo": "shop-2-1.jpg",
         "description": "We are a clothes shop",
         "active": true
@@ -113,8 +113,8 @@
             }
         },
         "email": "abc@company.com",
-        "phone": 12345678,
-        "password": "$2a$12$uA9FsDw63v6dkJKGlLQ/8ufYBs8euB7kqIQewyYlZXU5azEKeLEky",
+        "phone": "12345670",
+        "password": "ng123456",
         "photo": "shop-2-1.jpg",
         "description": "We are a clothes shop",
         "active": true
@@ -137,10 +137,70 @@
             }
         },
         "email": "hi@company.com",
-        "phone": 12345678,
-        "password": "$2a$12$uA9FsDw63v6dkJKGlLQ/8ufYBs8euB7kqIQewyYlZXU5azEKeLEky",
+        "phone": "12345677",
+        "password": "ng123456",
         "photo": "shop-2-1.jpg",
         "description": "We are a clothes shop",
         "active": true
+    },
+    {
+        "_id": {
+            "$oid": "60703e1aaa1c68484a568778"
+        },
+        "photo": "merchantAvator.png",
+        "description": "No description",
+        "active": true,
+        "firstName": "Alan Merchant",
+        "lastName": "Ng",
+        "shopName": "GrayRain",
+        "email": "ngpuilam9166@gmail.com",
+        "phone": "91665145",
+        "password": "$2a$12$F5FBBA0Cc1oUUuH2Mkan8.zRlsAAc8Yli90d37TLx5UbLZ3wxkvWW",
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "60706649119e665b3bc4d2b8"
+        },
+        "photo": "merchantAvator.png",
+        "description": "No description",
+        "active": true,
+        "firstName": "Terry Merchant",
+        "lastName": "Fung",
+        "shopName": "RedRain",
+        "email": "terryfung@gmail.com",
+        "phone": "12345578",
+        "password": "$2a$12$3z/Db3yfyzrFvoNgsO/Ht.YMY7iWhkbBXviKH7krwp9RhC8X.Pp4S",
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "6070668934ec3a5b70a726f4"
+        },
+        "photo": "merchantAvator.png",
+        "description": "No description",
+        "active": true,
+        "firstName": "Terry Merchant",
+        "lastName": "Fung",
+        "shopName": "YelloRain",
+        "email": "terryfung@gmail.com",
+        "phone": "12388678",
+        "password": "$2a$12$dDoSEIBc9PRmBMJbSqcRde7jZ25khsaAjdzUC.mWPZ.VrHv23n9hK",
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "60706bffc4a4445e12dca8f2"
+        },
+        "photo": "merchantAvator.png",
+        "description": "No description",
+        "active": true,
+        "firstName": "Hello Merchant",
+        "lastName": "Fung",
+        "shopName": "BlackRain",
+        "email": "terryfung@gmail.com",
+        "phone": "18885678",
+        "password": "$2a$12$vC8y968ZA8HOERHUKvF.Pu29GNPHsyO3VNM9Y1AnXPMGQdE.WGsAC",
+        "__v": 0
     }
 ]

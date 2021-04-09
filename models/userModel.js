@@ -24,18 +24,18 @@ const userSchema = mongoose.Schema(
         username: {
             type: String,
             // required: [true, "Please enter your username"],
-            unique: true,
+            // unique: true,
             trim: true,
             maxlength: 20,
             minlength: 1,
         },
         phone: {
             type: String,
-            // required: [true, "Please enter your phone number"],
+            required: [true, "Please enter your phone number"],
             unique: true,
             trim: true,
             maxlength: 16,
-            minlength: 10,
+            minlength: 8,
         },
         email: {
             type: String,
@@ -61,6 +61,11 @@ const userSchema = mongoose.Schema(
                 },
                 message: "Passwords are not the same",
             },
+        },
+        gender: {
+            type: String,
+            enum: ["male", "female"],
+            required: [true, "Please enter your gender"],
         },
         photo: {
             type: String,

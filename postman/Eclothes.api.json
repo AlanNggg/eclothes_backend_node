@@ -218,6 +218,64 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Hello Merchant\",\n    \"lastName\": \"Fung\",\n    \"shopName\": \"HelloRain\",\n    \"email\": \"terryfung@gmail.com\",\n    \"phone\": \"12349998\",\n    \"password\": \"ng123456\",\n    \"passwordConfirm\": \"ng123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/api/v1/merchants/register",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"merchants",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"ngpuilam9166@gmail.com\",\n    \"password\": \"ng123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/api/v1/merchants/login",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"merchants",
+								"login"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -378,6 +436,64 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"abc\",\n    \"lastName\": \"abc\",\n    \"gender\": \"male\",\n    \"email\": \"abc@gmail.com\",\n    \"phone\": \"38382338\",\n    \"password\": \"ng123456\",\n    \"passwordConfirm\": \"ng123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/api/v1/users/register",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"ngpuilam9166@gmail.com\",\n    \"password\": \"ng123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/api/v1/users/login",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -478,7 +594,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{localUrl}}/api/v1/products",
+							"raw": "{{localUrl}}/api/v1/products?price[gte]=50&price[lte]=100&page=2&limit=3&fields=name,-merchant,-category",
 							"host": [
 								"{{localUrl}}"
 							],
@@ -486,6 +602,28 @@
 								"api",
 								"v1",
 								"products"
+							],
+							"query": [
+								{
+									"key": "price[gte]",
+									"value": "50"
+								},
+								{
+									"key": "price[lte]",
+									"value": "100"
+								},
+								{
+									"key": "page",
+									"value": "2"
+								},
+								{
+									"key": "limit",
+									"value": "3"
+								},
+								{
+									"key": "fields",
+									"value": "name,-merchant,-category"
+								}
 							]
 						}
 					},
@@ -522,14 +660,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{localUrl}}/api/v1/users",
+							"raw": "{{localUrl}}/api/v1/comments",
 							"host": [
 								"{{localUrl}}"
 							],
 							"path": [
 								"api",
 								"v1",
-								"users"
+								"comments"
 							]
 						}
 					},

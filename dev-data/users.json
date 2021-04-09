@@ -6,7 +6,7 @@
         "firstName": "Jonas",
         "lastName": "Schmedtmann",
         "username": "JonasS",
-        "phone": 12345678,
+        "phone": "13345678",
         "email": "admin@natours.io",
         "role": "admin",
         "active": true,
@@ -20,7 +20,7 @@
         "firstName": "Lourdes",
         "lastName": "Browning",
         "username": "LourdesB",
-        "phone": 12345678,
+        "phone": "12345633",
         "email": "loulou@example.com",
         "role": "user",
         "active": true,
@@ -43,7 +43,7 @@
         "firstName": "Sophie",
         "lastName": "Louise Hart",
         "username": "SophieLH",
-        "phone": 12345678,
+        "phone": "12335825",
         "email": "sophie@example.com",
         "role": "user",
         "active": true,
@@ -66,7 +66,7 @@
         "firstName": "Ayla",
         "lastName": "Cornell",
         "username": "AylaC",
-        "phone": 12345678,
+        "phone": "30345678",
         "email": "ayls@example.com",
         "role": "user",
         "active": true,
@@ -89,7 +89,7 @@
         "firstName": "Leo",
         "lastName": "Gillespie",
         "username": "LeoG",
-        "phone": 12345678,
+        "phone": "12895678",
         "email": "leo@example.com",
         "role": "user",
         "active": true,
@@ -103,7 +103,7 @@
         "firstName": "Jennifer",
         "lastName": "Hardy",
         "username": "JenniferH",
-        "phone": 12345678,
+        "phone": "12345609",
         "email": "jennifer@example.com",
         "role": "user",
         "active": true,
@@ -117,7 +117,7 @@
         "firstName": "Kate",
         "lastName": "Morrison",
         "username": "KateM",
-        "phone": 12345678,
+        "phone": "12340078",
         "email": "kate@example.com",
         "role": "user",
         "active": true,
@@ -131,7 +131,7 @@
         "firstName": "Eliana",
         "lastName": "Stout",
         "username": "ElianaS",
-        "phone": 12345678,
+        "phone": "12775678",
         "email": "eliana@example.com",
         "role": "user",
         "active": true,
@@ -145,7 +145,7 @@
         "firstName": "Cristian",
         "lastName": "Vega",
         "username": "CristianV",
-        "phone": 12345678,
+        "phone": "12366678",
         "email": "chris@example.com",
         "role": "user",
         "active": true,
@@ -168,7 +168,7 @@
         "firstName": "Steve T.",
         "lastName": "Scaife",
         "username": "SteveT.S",
-        "phone": 12345678,
+        "phone": "12995678",
         "email": "steve@example.com",
         "role": "user",
         "active": true,
@@ -182,7 +182,7 @@
         "firstName": "Aarav",
         "lastName": "Lynn",
         "username": "AaravL",
-        "phone": 12345678,
+        "phone": "12321678",
         "email": "aarav@example.com",
         "role": "user",
         "active": true,
@@ -205,7 +205,7 @@
         "firstName": "Miyah",
         "lastName": "Myles",
         "username": "MiyahM",
-        "phone": 12345678,
+        "phone": "19165678",
         "email": "miyah@example.com",
         "role": "user",
         "active": true,
@@ -228,7 +228,7 @@
         "firstName": "Ben",
         "lastName": "Hadley",
         "username": "BenH",
-        "phone": 12345678,
+        "phone": "12345155",
         "email": "ben@example.com",
         "role": "user",
         "active": true,
@@ -242,7 +242,7 @@
         "firstName": "Laura",
         "lastName": "Wilson",
         "username": "LauraW",
-        "phone": 12345678,
+        "phone": "12348818",
         "email": "laura@example.com",
         "role": "user",
         "active": true,
@@ -256,7 +256,8 @@
             "district": {
                 "$oid": "606b53b2a307473eb5d3f7d1"
             }
-        }
+        },
+        "gender": "male"
     },
     {
         "_id": {
@@ -265,12 +266,13 @@
         "firstName": "Max",
         "lastName": "Smith",
         "username": "MaxS",
-        "phone": 12345678,
+        "phone": "12345001",
         "email": "max@example.com",
         "role": "user",
         "active": true,
         "photo": "user-15.jpg",
-        "password": "$2a$12$l5qamwqcqC2NlgN6o5A5..9Fxzr6X.bjx/8j3a9jYUHWGOL99oXlm"
+        "password": "$2a$12$l5qamwqcqC2NlgN6o5A5..9Fxzr6X.bjx/8j3a9jYUHWGOL99oXlm",
+        "gender": "male"
     },
     {
         "_id": {
@@ -279,12 +281,13 @@
         "firstName": "Isabel",
         "lastName": "Kirkland",
         "username": "IsabelK",
-        "phone": 12345678,
+        "phone": "99345678",
         "email": "isabel@example.com",
         "role": "user",
         "active": true,
         "photo": "user-16.jpg",
-        "password": "$2a$12$IUnwPH0MGFeMuz7g4gtfvOll.9wgLyxG.9C3TKlttfLtCQWEE6GIu"
+        "password": "$2a$12$IUnwPH0MGFeMuz7g4gtfvOll.9wgLyxG.9C3TKlttfLtCQWEE6GIu",
+        "gender": "female"
     },
     {
         "_id": {
@@ -293,12 +296,13 @@
         "firstName": "Alexander",
         "lastName": "Jones",
         "username": "AlexanderJ",
-        "phone": 12345678,
+        "phone": "33345678",
         "email": "alex@example.com",
         "role": "user",
         "active": true,
         "photo": "user-17.jpg",
-        "password": "$2a$12$NnclhoYFNcSApoQ3ML8kk.b4B3gbpOmZJLfqska07miAnXukOgK6y"
+        "password": "$2a$12$NnclhoYFNcSApoQ3ML8kk.b4B3gbpOmZJLfqska07miAnXukOgK6y",
+        "gender": "male"
     },
     {
         "_id": {
@@ -307,12 +311,13 @@
         "firstName": "Eduardo",
         "lastName": "Hernandez",
         "username": "EduardoH",
-        "phone": 12345678,
+        "phone": "65545678",
         "email": "edu@example.com",
         "role": "user",
         "active": true,
         "photo": "user-18.jpg",
-        "password": "$2a$12$uB5H1OxLMOqDYTuTlptAoewlovENJvjrLwzsL1wUZ6OkAIByPPBGq"
+        "password": "$2a$12$uB5H1OxLMOqDYTuTlptAoewlovENJvjrLwzsL1wUZ6OkAIByPPBGq",
+        "gender": "female"
     },
     {
         "_id": {
@@ -321,12 +326,13 @@
         "firstName": "John",
         "lastName": "Riley",
         "username": "JohnR",
-        "phone": 12345678,
+        "phone": "67745678",
         "email": "john@example.com",
         "role": "user",
         "active": true,
         "photo": "user-19.jpg",
-        "password": "$2a$12$11JElTatQlAFo1Obw/dwd..vuVmQyYS7MT14pkl3lRvVPjGA00G8O"
+        "password": "$2a$12$11JElTatQlAFo1Obw/dwd..vuVmQyYS7MT14pkl3lRvVPjGA00G8O",
+        "gender": "male"
     },
     {
         "_id": {
@@ -335,11 +341,27 @@
         "firstName": "Lisa",
         "lastName": "Brown",
         "username": "LisaB",
-        "phone": 12345678,
+        "phone": "68345678",
         "email": "lisa@example.com",
         "role": "user",
         "active": true,
         "photo": "user-20.jpg",
-        "password": "$2a$12$uA9FsDw63v6dkJKGlLQ/8ufYBs8euB7kqIQewyYlZXU5azEKeLEky"
+        "password": "$2a$12$uA9FsDw63v6dkJKGlLQ/8ufYBs8euB7kqIQewyYlZXU5azEKeLEky",
+        "gender": "female"
+    },
+    {
+        "_id": {
+            "$oid": "60703a98e334f646971a1dc5"
+        },
+        "photo": "userAvator.png",
+        "active": true,
+        "firstName": "Alan",
+        "lastName": "Ng",
+        "phone": "91665145",
+        "email": "ngpuilam9166@gmail.com",
+        "password": "$2a$12$3Kp8bwcOtWMrL1ah1rWlCuhD/SGWrqF7Zic9wV3jFXnV7apHOcV6G",
+        "__v": 0,
+        "role": "user",
+        "gender": "male"
     }
 ]
