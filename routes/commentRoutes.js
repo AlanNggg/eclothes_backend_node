@@ -8,11 +8,15 @@ const router = express.Router({ mergeParams: true });
 router
     .route("/")
     .get(commentController.getAllComments)
-    .post(commentController.createComment);
+    .post(
+        userAuthController.authorization,
+        commentController.setProductUserIds,
+        commentController.createComment
+    );
 
 router
     .route("/:id")
     .get(commentController.getComment)
-    .delete(commentController.deleteComment);
+    .delete(userAuthController.authorization, commentController.deleteComment);
 
 module.exports = router;

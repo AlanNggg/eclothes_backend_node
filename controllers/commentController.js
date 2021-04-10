@@ -1,48 +1,19 @@
 const Comment = require("../models/commentModel");
-
 const catchError = require("../lib/catchError");
+const controllerFactory = require("./controllerFactory");
 
-exports.getAllComments = catchError(async (req, res, next) => {
-    const comments = await Comment.find();
+exports.setProductUserIds = (req, res, next) => {
+    // POST /products/:productId/comment
+    if (!req.body.product) req.body.product = req.params.productId;
+    if (!req.body.user) req.body.user = req.user.id;
 
-    res.status(200).json({
-        status: "success",
-        results: comments.length,
-        data: {
-            comments,
-        },
-    });
-});
+    next();
+};
 
-exports.getComment = catchError(async (req, res, next) => {
-    const comment = await Comment.findById(req.params.id);
+exports.getAllComments = controllerFactory.getAll(Comment);
 
-    res.status(200).json({
-        status: "success",
-        data: {
-            comment,
-        },
-    });
-});
+exports.getComment = controllerFactory.getOne(Comment);
 
-exports.createComment = catchError(async (req, res, next) => {
-    const comment = await Comment.create(req.body);
+exports.createComment = controllerFactory.createOne(Comment);
 
-    res.status(200).json({
-        status: "success",
-        data: {
-            comment,
-        },
-    });
-});
-
-exports.deleteComment = catchError(async (req, res, next) => {
-    await Comment.findByIdAndDelete(req.params.id);
-
-    res.status(200).json({
-        status: "success",
-        data: {
-            comment: null,
-        },
-    });
-});
+exports.deleteComment = controllerFactory.deleteOne(Comment);

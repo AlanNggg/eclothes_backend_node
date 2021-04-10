@@ -8,11 +8,18 @@ const router = express.Router({ mergeParams: true });
 router
     .route("/")
     .get(favoriteController.getAllFavorites)
-    .post(favoriteController.addFavorite);
+    .post(
+        userAuthController.authorization,
+        favoriteController.setUserId,
+        favoriteController.addFavorite
+    );
 
 router
     .route("/:id")
     .get(favoriteController.getFavorite)
-    .delete(favoriteController.removeFavorite);
+    .delete(
+        userAuthController.authorization,
+        favoriteController.removeFavorite
+    );
 
 module.exports = router;

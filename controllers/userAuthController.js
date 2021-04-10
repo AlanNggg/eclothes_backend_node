@@ -1,8 +1,10 @@
+const fs = require("fs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
 const authController = require("../controllers/authController");
 const ErrorResponse = require("../lib/ErrorResponse");
 const catchError = require("../lib/catchError");
+const { createDirectory } = require("../lib/directoryHandler");
 
 exports.register = catchError(async (req, res, next) => {
     const newUser = await User.create({
@@ -15,6 +17,7 @@ exports.register = catchError(async (req, res, next) => {
         passwordConfirm: req.body.passwordConfirm,
     });
 
+    createDirectory(newUser._id, "users");
     authController.sendToken(newUser, 201, res);
 });
 

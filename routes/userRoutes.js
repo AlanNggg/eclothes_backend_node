@@ -1,9 +1,12 @@
 const express = require("express");
-const multer = require("multer");
 const userController = require("../controllers/userController");
 const userAuthController = require("../controllers/userAuthController");
-
+const followingRoutes = require("./followingRoutes");
+const favoriteRoutes = require("./favoriteRoutes");
 const router = express.Router();
+
+router.use("/:userId/followings", followingRoutes);
+router.use("/:userId/favorites", favoriteRoutes);
 
 router.post("/register", userAuthController.register);
 router.post("/login", userAuthController.login);
@@ -21,7 +24,8 @@ router
     .patch(
         "/me",
         userAuthController.authorization,
-        userController.uploadPhoto,
+        userController.uploadUserPhoto,
+        userController.resizeUserPhoto,
         userController.updateCurrentUser
     )
     .delete(userAuthController.authorization, userController.deleteCurrentUser);

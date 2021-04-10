@@ -8,11 +8,18 @@ const router = express.Router({ mergeParams: true });
 router
     .route("/")
     .get(followingController.getAllFollowings)
-    .post(followingController.addFollowing);
+    .post(
+        userAuthController.authorization,
+        followingController.setUserId,
+        followingController.addFollowing
+    );
 
 router
     .route("/:id")
     .get(followingController.getFollowing)
-    .delete(followingController.removeFollowing);
+    .delete(
+        userAuthController.authorization,
+        followingController.removeFollowing
+    );
 
 module.exports = router;

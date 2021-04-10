@@ -1,42 +1,51 @@
-[
-    {
-        "userId": {
-            "$oid": "606b5638a307473eb5d3f7e5"
-        },
-        "productId": {
-            "$oid": "606c670a2b63e377cfc70461"
-        }
-    },
-    {
-        "userId": {
-            "$oid": "606b5638a307473eb5d3f7e6"
-        },
-        "productId": {
-            "$oid": "606c670a2b63e377cfc70461"
-        }
-    },
-    {
-        "userId": {
-            "$oid": "606b5638a307473eb5d3f7e4"
-        },
-        "productId": {
-            "$oid": "606c670a2b63e377cfc70462"
-        }
-    },
-    {
-        "userId": {
-            "$oid": "606b5638a307473eb5d3f7eb"
-        },
-        "productId": {
-            "$oid": "606c670a2b63e377cfc70463"
-        }
-    },
-    {
-        "userId": {
-            "$oid": "606b5638a307473eb5d3f7e6"
-        },
-        "productId": {
-            "$oid": "606c670a2b63e377cfc70465"
-        }
-    }
-]
+[{
+  "_id": {
+    "$oid": "606c67dc2b63e377cfc70466"
+  },
+  "product": {
+    "$oid": "606c670a2b63e377cfc70461"
+  },
+  "user": {
+    "$oid": "606b5638a307473eb5d3f7e5"
+  }
+},{
+  "_id": {
+    "$oid": "606c67dc2b63e377cfc70467"
+  },
+  "product": {
+    "$oid": "606c670a2b63e377cfc70461"
+  },
+  "user": {
+    "$oid": "606b5638a307473eb5d3f7e6"
+  }
+},{
+  "_id": {
+    "$oid": "606c67dc2b63e377cfc70468"
+  },
+  "product": {
+    "$oid": "606c670a2b63e377cfc70462"
+  },
+  "user": {
+    "$oid": "606b5638a307473eb5d3f7e4"
+  }
+},{
+  "_id": {
+    "$oid": "606c67dc2b63e377cfc70469"
+  },
+  "product": {
+    "$oid": "606c670a2b63e377cfc70463"
+  },
+  "user": {
+    "$oid": "606b5638a307473eb5d3f7eb"
+  }
+},{
+  "_id": {
+    "$oid": "606c67dc2b63e377cfc7046a"
+  },
+  "product": {
+    "$oid": "606c670a2b63e377cfc70465"
+  },
+  "user": {
+    "$oid": "606b5638a307473eb5d3f7e6"
+  }
+}]

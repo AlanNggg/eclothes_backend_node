@@ -1,47 +1,18 @@
 const Following = require("../models/followingModel");
-
 const catchError = require("../lib/catchError");
+const controllerFactory = require("./controllerFactory");
 
-exports.getAllFollowings = catchError(async (req, res, next) => {
-    const followings = await Following.find();
+// POST /followings
+exports.setUserId = (req, res, next) => {
+    if (!req.body.user) req.body.user = req.user.id;
 
-    res.status(200).json({
-        status: "success",
-        data: {
-            followings,
-        },
-    });
-});
+    next();
+};
 
-exports.getFollowing = catchError(async (req, res, next) => {
-    const following = await Following.findById(req.params.id);
+exports.getAllFollowings = controllerFactory.getAll(Following);
 
-    res.status(200).json({
-        status: "success",
-        data: {
-            following,
-        },
-    });
-});
+exports.getFollowing = controllerFactory.getOne(Following);
 
-exports.addFollowing = catchError(async (req, res, next) => {
-    const following = await Following.create(req.body);
+exports.addFollowing = controllerFactory.createOne(Following);
 
-    res.status(200).json({
-        status: "success",
-        data: {
-            following,
-        },
-    });
-});
-
-exports.removeFollowing = catchError(async (req, res, next) => {
-    const following = await Following.findByIdAndDelete(req.params.id);
-
-    res.status(200).json({
-        status: "success",
-        data: {
-            following: null,
-        },
-    });
-});
+exports.removeFollowing = controllerFactory.deleteOne(Following);

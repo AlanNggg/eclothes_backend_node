@@ -28,6 +28,34 @@
 					"response": []
 				},
 				{
+					"name": "Create Region",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"category\": \"Swimwear\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/api/v1/categories",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Delete Region By Id",
 					"request": {
 						"method": "DELETE",
@@ -86,6 +114,34 @@
 								"api",
 								"v1",
 								"districts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create District",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"category\": \"Swimwear\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/api/v1/categories",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"categories"
 							]
 						}
 					},
@@ -220,6 +276,39 @@
 					"response": []
 				},
 				{
+					"name": "Get Product By Merchants",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/api/v1/merchants/{{merchantId}}/products",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"merchants",
+								"{{merchantId}}",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Register",
 					"request": {
 						"method": "POST",
@@ -250,12 +339,24 @@
 				},
 				{
 					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"merchantToken\", pm.response.json().token);",
+									"pm.environment.set(\"merchantId\", pm.response.json().data.user._id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"ngpuilam9166@gmail.com\",\n    \"password\": \"ng123456\"\n}",
+							"raw": "{\n    \"email\": \"ngpuilam9166@gmail.com\",\n    \"password\": \"ng1234567\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -272,6 +373,91 @@
 								"v1",
 								"merchants",
 								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Current Merchant",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{merchantToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/Users/puilamng/Documents/candyservice/frontend/home101-frontend/public/home/hero_image/hero-2.jpg"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/api/v1/merchants/me",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"merchants",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Current User Password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{merchantToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"passwordCurrent\": \"ng123456\",\n    \"password\": \"ng1234567\",\n    \"passwordConfirm\": \"ng1234567\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/api/v1/merchants/me/update-password",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"merchants",
+								"me",
+								"update-password"
 							]
 						}
 					},
@@ -396,7 +582,7 @@
 					"response": []
 				},
 				{
-					"name": "Get All Users By Id",
+					"name": "Get User By Id",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -416,7 +602,7 @@
 					"response": []
 				},
 				{
-					"name": "Get All Users By Username",
+					"name": "Get User By Username",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -444,7 +630,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"firstName\": \"abc\",\n    \"lastName\": \"abc\",\n    \"gender\": \"male\",\n    \"email\": \"abc@gmail.com\",\n    \"phone\": \"38382338\",\n    \"password\": \"ng123456\",\n    \"passwordConfirm\": \"ng123456\"\n}",
+							"raw": "{\n    \"firstName\": \"123\",\n    \"lastName\": \"123\",\n    \"gender\": \"male\",\n    \"email\": \"t3st2@gmail.com\",\n    \"phone\": \"38383222\",\n    \"password\": \"ng123456\",\n    \"passwordConfirm\": \"ng123456\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -468,12 +654,24 @@
 				},
 				{
 					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"userToken\", pm.response.json().token);",
+									"pm.environment.set(\"userId\", pm.response.json().data.user._id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"ngpuilam9166@gmail.com\",\n    \"password\": \"ng123456\"\n}",
+							"raw": "{\n    \"email\": \"ngpuilam9166@gmail.com\",\n    \"password\": \"ng1234567\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -490,6 +688,85 @@
 								"v1",
 								"users",
 								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Current User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{userToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"hello Me\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/api/v1/users/me",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Current User Password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{userToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"passwordCurrent\": \"ng123456\",\n    \"password\": \"ng1234567\",\n    \"passwordConfirm\": \"ng1234567\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/api/v1/users/me/update-password",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"me",
+								"update-password"
 							]
 						}
 					},
@@ -520,20 +797,140 @@
 					"response": []
 				},
 				{
-					"name": "Get Followings By Id",
+					"name": "Get All Followings By User",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{localUrl}}/api/v1/products/606b5c91a307473eb5d3f802",
+							"raw": "{{localUrl}}/api/v1/users/{{userId}}/followings",
 							"host": [
 								"{{localUrl}}"
 							],
 							"path": [
 								"api",
 								"v1",
-								"products",
+								"users",
+								"{{userId}}",
+								"followings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Following By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/api/v1/followings/606b5c91a307473eb5d3f802",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"followings",
 								"606b5c91a307473eb5d3f802"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Following",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{userToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"merchant\": \"606b57c8a307473eb5d3f7f9\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/api/v1/followings",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"followings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Following",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{userToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/api/v1/followings/6071777d675f57053d54d12f",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"followings",
+								"6071777d675f57053d54d12f"
 							]
 						}
 					},
@@ -564,7 +961,7 @@
 					"response": []
 				},
 				{
-					"name": "Get Favorites By Id",
+					"name": "Get Favorite By Id",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -582,6 +979,115 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Get All Favorites By User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/api/v1/users/{{userId}}/favorites",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"favorites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Favorite",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{userToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product\": \"606c670a2b63e377cfc70465\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/api/v1/favorites",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"favorites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Favorite",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{userToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/api/v1/favorites/60718ed6c2e95b0afffe0183",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"favorites",
+								"60718ed6c2e95b0afffe0183"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -594,7 +1100,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{localUrl}}/api/v1/products?price[gte]=50&price[lte]=100&page=2&limit=3&fields=name,-merchant,-category",
+							"raw": "{{localUrl}}/api/v1/products?price[gte]=50&price[lte]=100&page=2&limit=3&fields=name,-merchant,-category&sort=price",
 							"host": [
 								"{{localUrl}}"
 							],
@@ -623,6 +1129,10 @@
 								{
 									"key": "fields",
 									"value": "name,-merchant,-category"
+								},
+								{
+									"key": "sort",
+									"value": "price"
 								}
 							]
 						}
@@ -644,6 +1154,88 @@
 								"v1",
 								"products",
 								"606c670a2b63e377cfc70461"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{merchantToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"category\": \"606b591ea307473eb5d3f7fd\",\n    \"price\": 300,\n    \"name\": \"MY t-shirt version 2\",\n    \"options\": {\n        \"color\": [\"red\", \"blue\", \"green\"]\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/api/v1/products",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{merchantToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "photos",
+									"type": "file",
+									"src": [
+										"/Users/puilamng/Documents/candyservice/frontend/home101-frontend/public/home/hero_image/hero-1.jpg",
+										"/Users/puilamng/Documents/candyservice/frontend/home101-frontend/public/home/hero_image/hero-2.jpg",
+										"/Users/puilamng/Documents/candyservice/frontend/home101-frontend/public/home/hero_image/hero-3.jpg"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "{{localUrl}}/api/v1/products/6071522cf4075777962838da",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"6071522cf4075777962838da"
 							]
 						}
 					},
@@ -688,6 +1280,155 @@
 								"v1",
 								"comments",
 								"606c69552b63e377cfc7046b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Comments By Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localUrl}}/api/v1/products/606c670a2b63e377cfc70465/comments",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"606c670a2b63e377cfc70465",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{userToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product\": \"606c670a2b63e377cfc70465\",\n    \"comment\": \"This is really beautiful\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/api/v1/comments",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Comment By Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{userToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"comment\": \"This is really colorful\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/api/v1/products/606c670a2b63e377cfc70464/comments",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"606c670a2b63e377cfc70464",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Comment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{userToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localUrl}}/api/v1/comments/60718f50c2e95b0afffe018e",
+							"host": [
+								"{{localUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"comments",
+								"60718f50c2e95b0afffe018e"
 							]
 						}
 					},

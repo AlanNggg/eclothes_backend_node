@@ -23,6 +23,19 @@ const followingSchema = mongoose.Schema(
     }
 );
 
+followingSchema.post("save", async function (doc, next) {
+    // Call the populate on a DOC NEED TO CALL execPopulate
+    await doc
+        .populate({
+            path: "user",
+        })
+        .populate({
+            path: "merchant",
+        })
+        .execPopulate();
+    next();
+});
+
 followingSchema.pre(/^find/, function (next) {
     this.populate({
         path: "user",

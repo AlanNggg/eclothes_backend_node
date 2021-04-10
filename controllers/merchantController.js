@@ -1,29 +1,24 @@
+const sharp = require("sharp");
 const Merchant = require("../models/merchantModel");
-
 const catchError = require("../lib/catchError");
-
+const controllerFactory = require("./controllerFactory");
 const { filterObject } = require("../lib/obj-lib");
+const upload = require("../lib/imageHandler");
 
-exports.getAllMerchants = catchError(async (req, res, next) => {
-    const merchants = await Merchant.find();
+exports.uploadMerchantPhoto = upload.single("photo");
 
-    res.status(200).json({
-        status: "success",
-        data: {
-            merchants,
-        },
-    });
-});
+exports.resizeMerchantPhoto = catchError(async (req, res, next) => {
+    if (!req.file) return next();
 
-exports.getMerchantById = catchError(async (req, res, next) => {
-    const merchant = await Merchant.findById(req.params.id);
+    req.file.filename = `user-${req.user.id}-${Date.now()}.jpeg`;
 
-    res.status(200).json({
-        status: "success",
-        data: {
-            merchant,
-        },
-    });
+    await sharp(req.file.buffer)
+        .resize(500, 500)
+        .toFormat("jpeg")
+        .jpeg({ quality: 90 })
+        .toFile(`public/photo/merchants/${req.user.id}/${req.file.filename}`);
+
+    next();
 });
 
 exports.getMerchantByUsername = catchError(async (req, res, next) => {
@@ -73,7 +68,9 @@ exports.updateCurrentMerchant = catchError(async (req, res, next) => {
         "phone"
     );
 
-    const updatedMerchant = await User.findByIdAndUpdate(
+    if (req.file) filteredBody.photo = req.file.filename;
+
+    const updatedMerchant = await Merchant.findByIdAndUpdate(
         req.user.id,
         filteredBody,
         {
@@ -99,32 +96,13 @@ exports.deleteCurrentMerchant = catchError(async (req, res, next) => {
     });
 });
 
+exports.getAllMerchants = controllerFactory.getAll(Merchant);
+
+exports.getMerchantById = controllerFactory.getOne(Merchant);
+
 // admin
-exports.deleteMerchant = catchError(async (req, res, next) => {
-    const merchant = await Merchant.findByIdAndDelete(req.params.id);
+exports.createMerchant = controllerFactory.createOne(Merchant);
 
-    res.status(200).json({
-        status: "success",
-        data: {
-            merchant: null,
-        },
-    });
-});
+exports.deleteMerchant = controllerFactory.deleteOne(Merchant);
 
-exports.updateMerchant = catchError(async (req, res, next) => {
-    const updatedMerchant = await Merchant.findByIdAndUpdate(
-        req.params.id,
-        req.body,
-        {
-            new: true,
-            runValidators: true,
-        }
-    );
-
-    res.status(200).json({
-        status: "success",
-        data: {
-            merchant: updatedMerchant,
-        },
-    });
-});
+exports.updateMerchant = controllerFactory.updateOne(Merchant);

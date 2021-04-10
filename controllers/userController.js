@@ -1,57 +1,25 @@
-const multer = require("multer");
+const sharp = require("sharp");
 const User = require("../models/userModel");
 const catchError = require("../lib/catchError");
 const ErrorResponse = require("../lib/ErrorResponse");
+const controllerFactory = require("./controllerFactory");
 const { filterObject } = require("../lib/obj-lib");
+const upload = require("../lib/imageHandler");
 
-const multerStorage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, "public/photo/users");
-    },
-    filename: (req, file, cb) => {
-        const ext = file.mimetype.split("/")[1];
-        cb(null, `user-${req.user.id}-${Date.now()}.${ext}`);
-    },
-});
+exports.uploadUserPhoto = upload.single("photo");
 
-const multerFilter = (req, file, cb) => {
-    if (file.mimetype.startsWith("image")) {
-        cb(null, true);
-    } else {
-        cb(
-            new ErrorResponse("Not an image. Please upload images only.", 400),
-            false
-        );
-    }
-};
+exports.resizeUserPhoto = catchError(async (req, res, next) => {
+    if (!req.file) return next();
 
-const upload = multer({
-    storage: multerStorage,
-    fileFilter: multerFilter,
-});
+    req.file.filename = `user-${req.user.id}-${Date.now()}.jpeg`;
 
-exports.uploadPhoto = upload.single("photo");
+    await sharp(req.file.buffer)
+        .resize(500, 500)
+        .toFormat("jpeg")
+        .jpeg({ quality: 90 })
+        .toFile(`public/photo/users/${req.user.id}/${req.file.filename}`);
 
-exports.getAllUsers = catchError(async (req, res, next) => {
-    const users = await User.find();
-
-    res.status(200).json({
-        status: "success",
-        data: {
-            users,
-        },
-    });
-});
-
-exports.getUserById = catchError(async (req, res, next) => {
-    const user = await User.findById(req.params.id);
-
-    res.status(200).json({
-        status: "success",
-        data: {
-            user,
-        },
-    });
+    next();
 });
 
 exports.getUserByUsername = catchError(async (req, res, next) => {
@@ -69,8 +37,10 @@ exports.getUserByUsername = catchError(async (req, res, next) => {
 
 exports.updateCurrentUser = catchError(async (req, res, next) => {
     if (req.body.password || req.body.passwordConfirm) {
-        return ErrorResponse(
-            "This route is not for updating password. Please use /reset-password"
+        return next(
+            new ErrorResponse(
+                "This route is not for updating password. Please use /update-password"
+            )
         );
     }
 
@@ -111,39 +81,13 @@ exports.deleteCurrentUser = catchError(async (req, res, next) => {
     });
 });
 
+exports.getAllUsers = controllerFactory.getAll(User);
+
+exports.getUserById = controllerFactory.getOne(User);
+
 // admin
-exports.createUser = catchError(async (req, res, next) => {
-    const newUser = await User.create(req.body);
+exports.createUser = controllerFactory.createOne(User);
 
-    res.status(200).json({
-        status: "success",
-        data: {
-            user: newUser,
-        },
-    });
-});
+exports.deleteUser = controllerFactory.deleteOne(User);
 
-exports.deleteUser = catchError(async (req, res, next) => {
-    const user = await User.findByIdAndDelete(req.params.id);
-
-    res.status(200).json({
-        status: "success",
-        data: {
-            user: null,
-        },
-    });
-});
-
-exports.updateUser = catchError(async (req, res, next) => {
-    const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {
-        new: true,
-        runValidators: true,
-    });
-
-    res.status(200).json({
-        status: "success",
-        data: {
-            merchant: updatedUser,
-        },
-    });
-});
+exports.updateUser = controllerFactory.updateOne(User);

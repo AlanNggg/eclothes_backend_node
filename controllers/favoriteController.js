@@ -1,51 +1,20 @@
 const Favorite = require("../models/favoriteModel");
-
 const catchError = require("../lib/catchError");
+const controllerFactory = require("./controllerFactory");
 
-exports.getAllFavorites = catchError(async (req, res, next) => {
-    const favorites = await Favorite.find();
+exports.setUserId = (req, res, next) => {
+    if (!req.body.user) req.body.user = req.user.id;
 
-    res.status(200).json({
-        status: "success",
-        data: {
-            favorites,
-        },
-    });
-});
+    next();
+};
 
-exports.getFavorite = catchError(async (req, res, next) => {
-    const favorite = await Favorite.findById(req.params.id);
+exports.getAllFavorites = controllerFactory.getAll(Favorite);
 
-    res.status(200).json({
-        status: "success",
-        data: {
-            favorite,
-        },
-    });
-});
+exports.getFavorite = controllerFactory.getOne(Favorite);
 
-// admin
-exports.addFavorite = catchError(async (req, res, next) => {
-    const favorite = await Favorite.create(req.body);
+exports.addFavorite = controllerFactory.createOne(Favorite);
 
-    res.status(200).json({
-        status: "success",
-        data: {
-            favorite,
-        },
-    });
-});
-
-exports.removeFavorite = catchError(async (req, res, next) => {
-    await Favorite.findByIdAndDelete(req.params.id);
-
-    res.status(200).json({
-        status: "success",
-        data: {
-            favorite: null,
-        },
-    });
-});
+exports.removeFavorite = controllerFactory.deleteOne(Favorite);
 
 // exports.removeFavoriteByProductId = async (req, res, next) => {
 //

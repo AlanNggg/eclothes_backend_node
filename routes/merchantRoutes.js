@@ -2,8 +2,10 @@ const express = require("express");
 const merchantController = require("../controllers/merchantController");
 const merchantAuthController = require("../controllers/merchantAuthController");
 const userAuthController = require("../controllers/userAuthController");
+const productRoutes = require("./productRoutes");
+const router = express.Router({ mergeParams: true });
 
-const router = express.Router();
+router.use("/:merchantId/products", productRoutes);
 
 router.post("/register", merchantAuthController.register);
 router.post("/login", merchantAuthController.login);
@@ -18,6 +20,8 @@ router
     .patch(
         "/me",
         merchantAuthController.authorization,
+        merchantController.uploadMerchantPhoto,
+        merchantController.resizeMerchantPhoto,
         merchantController.updateCurrentMerchant
     )
     .delete(

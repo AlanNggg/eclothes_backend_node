@@ -1,17 +1,17 @@
 const express = require("express");
 const productController = require("../controllers/productController");
 const merchantAuthController = require("../controllers/merchantAuthController");
-const userAuthController = require("../controllers/userAuthController");
-const userController = require("../controllers/userController");
+const commentRoutes = require("./commentRoutes");
+const router = express.Router({ mergeParams: true });
 
-const router = express.Router();
+router.use("/:productId/comments", commentRoutes);
 
 router
     .route("/")
     .get(productController.getAllProducts)
     .post(
-        userAuthController.authorization,
-        userAuthController.allow("admin"),
+        merchantAuthController.authorization,
+        productController.setMerchantId,
         productController.createProduct
     );
 
@@ -19,13 +19,13 @@ router
     .route("/:id")
     .get(productController.getProductById)
     .patch(
-        userAuthController.authorization,
-        userAuthController.allow("admin"),
+        merchantAuthController.authorization,
+        productController.uploadProductPhotos,
+        productController.resizeProductPhotos,
         productController.updateProduct
     )
     .delete(
-        userAuthController.authorization,
-        userAuthController.allow("admin"),
+        merchantAuthController.authorization,
         productController.deleteProduct
     );
 

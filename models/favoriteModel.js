@@ -23,11 +23,12 @@ const favoriteSchema = mongoose.Schema(
     }
 );
 
-// favoriteSchema.index({ user: 1, post: 1 }, { unique: true });
-
 favoriteSchema.post("save", async function (doc, next) {
     // Call the populate on a DOC NEED TO CALL execPopulate
     await doc
+        .populate({
+            path: "user",
+        })
         .populate({
             path: "product",
         })
@@ -44,6 +45,7 @@ favoriteSchema.pre(/^find/, function (next) {
     next();
 });
 
+favoriteSchema.index({ user: 1, product: 1 }, { unique: true });
 const Favorite = mongoose.model("Favorite", favoriteSchema);
 
 module.exports = Favorite;

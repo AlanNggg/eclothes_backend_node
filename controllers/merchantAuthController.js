@@ -4,6 +4,7 @@ const Merchant = require("../models/merchantModel");
 const authController = require("../controllers/authController");
 const ErrorResponse = require("../lib/ErrorResponse");
 const catchError = require("../lib/catchError");
+const { createDirectory } = require("../lib/directoryHandler");
 
 exports.register = catchError(async (req, res, next) => {
     const newMerchant = await Merchant.create({
@@ -16,6 +17,7 @@ exports.register = catchError(async (req, res, next) => {
         passwordConfirm: req.body.passwordConfirm,
     });
 
+    createDirectory(newMerchant._id, "merchants");
     authController.sendToken(newMerchant, 201, res);
 });
 
