@@ -96,3 +96,16 @@ PATCH /api/v1/products/{{productId}}
 Delete Product:
 DELETE /api/v1/products/{{productId}}
 ```
+
+# Photos
+
+```
+Get Product's photo:
+/photo/merchants/{{merchantId}}/products/{{productId}}/{{filename.jpeg}}
+
+Get Merchant's photo:
+/photo/merchants/{{merchantId}}/{{filename.jpeg}}
+
+Get User's photo:
+/photo/users/{{userId}}/{{filename.jpeg}}
+```
