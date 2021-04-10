@@ -49,6 +49,9 @@ DELETE /api/v1/favorites/{{favoriteId}}
 ## Comment
 
 ```
+Get Product's Comments:
+POST /api/v1/products/{{productId}}/comments
+
 Create Comment:
 POST /api/v1/comments
 
@@ -82,7 +85,7 @@ PATCH /api/v1/merchants/me/update-password
 
 ```
 Get Merchant's Products:
-GET /api/v1/merchants/{{merchantId}}
+GET /api/v1/merchants/{{merchantId}}/products
 
 Create Product:
 POST /api/v1/products
