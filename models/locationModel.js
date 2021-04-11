@@ -13,7 +13,6 @@ const locationSchema = mongoose.Schema({
         ref: "District",
         required: [true, "Location must has a district"],
     },
-    select: false,
 });
 
 module.exports = locationSchema;

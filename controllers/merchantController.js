@@ -27,12 +27,7 @@ exports.getMerchantByUsername = catchError(async (req, res, next) => {
         username: req.params.name,
     });
 
-    res.status(200).json({
-        status: "success",
-        data: {
-            merchant,
-        },
-    });
+    res.status(200).json(merchant);
 });
 
 exports.getMerchantByShopName = catchError(async (req, res, next) => {
@@ -41,12 +36,7 @@ exports.getMerchantByShopName = catchError(async (req, res, next) => {
         shopName: req.params.shopname,
     });
 
-    res.status(200).json({
-        status: "success",
-        data: {
-            merchant,
-        },
-    });
+    res.status(200).json(merchant);
 });
 
 exports.updateCurrentMerchant = catchError(async (req, res, next) => {
@@ -79,12 +69,7 @@ exports.updateCurrentMerchant = catchError(async (req, res, next) => {
         }
     );
 
-    res.status(200).json({
-        status: "success",
-        data: {
-            merchant: updatedMerchant,
-        },
-    });
+    res.status(200).json(updatedMerchant);
 });
 
 exports.deleteCurrentMerchant = catchError(async (req, res, next) => {

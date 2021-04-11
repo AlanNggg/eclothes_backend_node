@@ -9,16 +9,20 @@ const createToken = (id) => {
     });
 };
 
-exports.sendToken = (user, statusCode, res) => {
+exports.sendToken = (user, statusCode, req, res) => {
     const token = createToken(user._id);
 
-    res.status(statusCode).json({
-        status: "success",
-        token,
-        data: {
+    if (req.originalUrl.includes("users")) {
+        res.status(statusCode).json({
+            token,
             user,
-        },
-    });
+        });
+    } else {
+        res.status(statusCode).json({
+            token,
+            merchant: user,
+        });
+    }
 };
 
 exports.login = (Model) =>
@@ -35,7 +39,7 @@ exports.login = (Model) =>
             return next(new ErrorResponse("Incorrect email or password", 401));
         }
 
-        this.sendToken(user, 200, res);
+        this.sendToken(user, 200, req, res);
     });
 
 exports.authorization = (Model) =>

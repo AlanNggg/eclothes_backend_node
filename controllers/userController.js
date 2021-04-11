@@ -27,12 +27,7 @@ exports.getUserByUsername = catchError(async (req, res, next) => {
         username: req.params.name,
     });
 
-    res.status(200).json({
-        status: "success",
-        data: {
-            user,
-        },
-    });
+    res.status(200).json(user);
 });
 
 exports.updateCurrentUser = catchError(async (req, res, next) => {
@@ -64,12 +59,7 @@ exports.updateCurrentUser = catchError(async (req, res, next) => {
         }
     );
 
-    res.status(200).json({
-        status: "success",
-        data: {
-            user: updatedUser,
-        },
-    });
+    res.status(200).json(updatedUser);
 });
 
 exports.deleteCurrentUser = catchError(async (req, res, next) => {

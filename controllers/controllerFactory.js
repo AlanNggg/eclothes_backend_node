@@ -21,37 +21,21 @@ exports.getAll = (Model) =>
 
         const data = await api.query;
 
-        res.status(200).json({
-            status: "success",
-            results: data.length,
-            data: {
-                data,
-            },
-        });
+        res.status(200).json(data);
     });
 
 exports.getOne = (Model) =>
     catchError(async (req, res, next) => {
         const data = await Model.findById(req.params.id);
 
-        res.status(200).json({
-            status: "success",
-            data: {
-                data,
-            },
-        });
+        res.status(200).json(data);
     });
 
 exports.createOne = (Model) =>
     catchError(async (req, res, next) => {
         const data = await Model.create(req.body);
 
-        res.status(200).json({
-            status: "success",
-            data: {
-                data,
-            },
-        });
+        res.status(200).json(data);
     });
 
 exports.updateOne = (Model) =>
@@ -61,12 +45,7 @@ exports.updateOne = (Model) =>
             runValidators: true,
         });
 
-        res.status(200).json({
-            status: "success",
-            data: {
-                data,
-            },
-        });
+        res.status(200).json(data);
     });
 
 exports.deleteOne = (Model) =>
