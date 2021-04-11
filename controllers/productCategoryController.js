@@ -14,19 +14,7 @@ exports.deleteCategoryByName = catchError(async (req, res, next) => {
     });
 });
 
-exports.getAllCategories = catchError(async (req, res, next) => {
-    const api = new API(ProductCategory.find(), req.query)
-        .filter()
-        .sort()
-        .select()
-        .paginate();
-
-    const data = await api.query;
-
-    res.status(200).json({
-        data,
-    });
-});
+exports.getAllCategories = controllerFactory.getAll(ProductCategory);
 
 exports.createCategory = controllerFactory.createOne(ProductCategory);
 
