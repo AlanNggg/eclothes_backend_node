@@ -18,7 +18,7 @@ exports.register = catchError(async (req, res, next) => {
     });
 
     createDirectory(newMerchant._id, "merchants");
-    authController.sendToken(newMerchant, 201, res);
+    authController.sendToken(newMerchant, 201, req, res);
 });
 
 exports.login = authController.login(Merchant);

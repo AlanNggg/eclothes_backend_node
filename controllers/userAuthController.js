@@ -18,7 +18,7 @@ exports.register = catchError(async (req, res, next) => {
     });
 
     createDirectory(newUser._id, "users");
-    authController.sendToken(newUser, 201, res);
+    authController.sendToken(newUser, 201, req, res);
 });
 
 exports.login = authController.login(User);
