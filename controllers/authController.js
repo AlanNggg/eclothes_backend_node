@@ -12,7 +12,7 @@ const createToken = (id) => {
 exports.sendToken = (user, statusCode, req, res) => {
     const token = createToken(user._id);
 
-    if (req.originalUrl.includes("users")) {
+    if (req.req.originalUrl.includes("users")) {
         res.status(statusCode).json({
             token,
             user,
