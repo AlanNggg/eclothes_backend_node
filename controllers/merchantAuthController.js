@@ -10,6 +10,7 @@ exports.register = catchError(async (req, res, next) => {
     const newMerchant = await Merchant.create({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
+        username: req.body.username,
         shopName: req.body.shopName,
         email: req.body.email,
         phone: req.body.phone,
