@@ -106,9 +106,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{localUrl}}/api/v1/districts",
+							"raw": "{{remoteUrl}}/api/v1/districts",
 							"host": [
-								"{{localUrl}}"
+								"{{remoteUrl}}"
 							],
 							"path": [
 								"api",
@@ -345,7 +345,7 @@
 							"script": {
 								"exec": [
 									"pm.environment.set(\"merchantToken\", pm.response.json().token);",
-									"pm.environment.set(\"merchantId\", pm.response.json().data.user._id);"
+									"pm.environment.set(\"merchantId\", pm.response.json().user._id);"
 								],
 								"type": "text/javascript"
 							}
@@ -630,7 +630,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"firstName\": \"123\",\n    \"lastName\": \"123\",\n    \"gender\": \"male\",\n    \"email\": \"t3st2@gmail.com\",\n    \"phone\": \"38383222\",\n    \"password\": \"ng123456\",\n    \"passwordConfirm\": \"ng123456\"\n}",
+							"raw": "{\n    \"firstName\": \"Pui Lam Remote Url\",\n    \"lastName\": \"Alan\",\n    \"username\": \"alanngggggggg\",\n    \"gender\": \"male\",\n    \"email\": \"ngjp@gmail.com\",\n    \"phone\": \"888888578\",\n    \"password\": \"ng123456\",\n    \"passwordConfirm\": \"ng123456\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -660,7 +660,7 @@
 							"script": {
 								"exec": [
 									"pm.environment.set(\"userToken\", pm.response.json().token);",
-									"pm.environment.set(\"userId\", pm.response.json().data.user._id);"
+									"pm.environment.set(\"userId\", pm.response.json().user._id);"
 								],
 								"type": "text/javascript"
 							}
@@ -671,7 +671,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"ngpuilam9166@gmail.com\",\n    \"password\": \"ng1234567\"\n}",
+							"raw": "{\n    \"username\": \"ngremote@gmail.com\",\n    \"password\": \"ng123456\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -709,8 +709,14 @@
 						"method": "PATCH",
 						"header": [],
 						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"firstName\": \"hello Me\"\n}",
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/Users/puilamng/Documents/candyservice/frontend/home101-frontend/public/home/hero_image/hero-1.jpg"
+								}
+							],
 							"options": {
 								"raw": {
 									"language": "json"
@@ -718,9 +724,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{localUrl}}/api/v1/users/me",
+							"raw": "{{remoteUrl}}/api/v1/users/me",
 							"host": [
-								"{{localUrl}}"
+								"{{remoteUrl}}"
 							],
 							"path": [
 								"api",
@@ -1140,20 +1146,22 @@
 					"response": []
 				},
 				{
-					"name": "Get Product By Id",
+					"name": "Get Product By Merchant",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{localUrl}}/api/v1/products/606c670a2b63e377cfc70461",
+							"raw": "{{localUrl}}/api/v1/merchants/606b57c8a307473eb5d3f7f7/products/",
 							"host": [
 								"{{localUrl}}"
 							],
 							"path": [
 								"api",
 								"v1",
+								"merchants",
+								"606b57c8a307473eb5d3f7f7",
 								"products",
-								"606c670a2b63e377cfc70461"
+								""
 							]
 						}
 					},
@@ -1213,18 +1221,13 @@
 						"method": "PATCH",
 						"header": [],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "photos",
-									"type": "file",
-									"src": [
-										"/Users/puilamng/Documents/candyservice/frontend/home101-frontend/public/home/hero_image/hero-1.jpg",
-										"/Users/puilamng/Documents/candyservice/frontend/home101-frontend/public/home/hero_image/hero-2.jpg",
-										"/Users/puilamng/Documents/candyservice/frontend/home101-frontend/public/home/hero_image/hero-3.jpg"
-									]
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"renamed t-shirt\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							]
+							}
 						},
 						"url": {
 							"raw": "{{localUrl}}/api/v1/products/6071522cf4075777962838da",
