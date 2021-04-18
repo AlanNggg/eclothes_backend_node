@@ -1,4 +1,5 @@
 const { promisify } = require("util");
+const { isEmail } = require("validator");
 const jwt = require("jsonwebtoken");
 const ErrorResponse = require("../lib/ErrorResponse");
 const catchError = require("../lib/catchError");
@@ -27,13 +28,22 @@ exports.sendToken = (user, statusCode, req, res) => {
 
 exports.login = (Model) =>
     catchError(async (req, res, next) => {
-        const { email, password } = req.body;
+        const { username, password } = req.body;
 
-        if (!email || !password) {
-            next(new ErrorResponse("Please provide email and password", 400));
+        if (!username || !password) {
+            next(
+                new ErrorResponse(
+                    "Please provide username/email and password",
+                    400
+                )
+            );
         }
 
-        const user = await Model.findOne({ email }).select("+password");
+        let user = await Model.findOne({ username }).select("+password");
+
+        if (!user) {
+            user = await Model.findOne({ email: username }).select("+password");
+        }
 
         if (!user || !(await user.comparePassword(password, user.password))) {
             return next(new ErrorResponse("Incorrect email or password", 401));

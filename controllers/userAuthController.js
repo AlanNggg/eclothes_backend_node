@@ -17,6 +17,8 @@ exports.register = catchError(async (req, res, next) => {
         passwordConfirm: req.body.passwordConfirm,
     });
 
+    console.log(newUser._id);
+
     createDirectory(newUser._id, "users");
     authController.sendToken(newUser, 201, req, res);
 });
