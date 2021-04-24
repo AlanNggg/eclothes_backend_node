@@ -25,8 +25,8 @@ const merchantSchema = mongoose.Schema(
         },
         username: {
             type: String,
-            // required: [true, "Please enter your username"],
-            // unique: true,
+            required: [true, "Please enter your username"],
+            unique: true,
             trim: true,
             maxlength: 20,
             minlength: 1,

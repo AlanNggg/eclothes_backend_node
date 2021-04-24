@@ -38,13 +38,12 @@ exports.login = (Model) =>
                 )
             );
         }
-        console.log(username);
+
         let user = await Model.findOne({ username }).select("+password");
 
         if (!user) {
             user = await Model.findOne({ email: username }).select("+password");
         }
-        console.log(user);
 
         if (!user || !(await user.comparePassword(password, user.password))) {
             return next(new ErrorResponse("Incorrect email or password", 401));

@@ -51,6 +51,7 @@ exports.updateCurrentMerchant = catchError(async (req, res, next) => {
         "photo",
         "firstName",
         "lastName",
+        "username",
         "shopName",
         "description",
         "location",

@@ -44,6 +44,7 @@ exports.updateCurrentUser = catchError(async (req, res, next) => {
         "photo",
         "firstName",
         "lastName",
+        "username",
         "email",
         "phone"
     );
