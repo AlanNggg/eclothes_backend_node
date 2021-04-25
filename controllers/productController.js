@@ -53,7 +53,7 @@ exports.setMerchantId = (req, res, next) => {
 };
 
 exports.createProduct = catchError(async (req, res, next) => {
-    const data = await Product.create(JSON.parse(JSON.stringify(req.body)));
+    const data = await Product.create(req.body);
 
     createDirectory(req.user.id, "merchants", `products/${data._id}`);
 

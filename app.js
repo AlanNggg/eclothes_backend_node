@@ -27,7 +27,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(upload.array());
+// app.use(upload.array());
 
 app.use("/api/v1/regions", regionRoutes);
 app.use("/api/v1/districts", districtRoutes);
