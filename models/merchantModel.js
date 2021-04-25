@@ -78,7 +78,6 @@ const merchantSchema = mongoose.Schema(
         photo: {
             type: String,
             trim: true,
-            default: "merchantAvator.png",
         },
         description: {
             type: String,

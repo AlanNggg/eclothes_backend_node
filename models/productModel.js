@@ -17,7 +17,6 @@ const productSchema = mongoose.Schema(
         photos: {
             type: [String],
             trim: true,
-            default: ["product.png"],
         },
         price: {
             type: Number,
