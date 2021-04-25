@@ -2,6 +2,7 @@ const path = require("path");
 const express = require("express");
 const helmet = require("helmet");
 const cors = require("cors");
+const multer = require("multer");
 
 const ErrorResponse = require("./lib/ErrorResponse");
 const ErrorHandler = require("./controllers/errorController");
@@ -15,6 +16,8 @@ const followingRoutes = require("./routes/followingRoutes");
 const commentRoutes = require("./routes/commentRoutes");
 const productCategoryRoutes = require("./routes/productCategoryRoutes");
 
+const upload = multer();
+
 const app = express();
 
 app.use(helmet());
@@ -23,6 +26,8 @@ app.use(cors());
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(upload.array());
 
 app.use("/api/v1/regions", regionRoutes);
 app.use("/api/v1/districts", districtRoutes);

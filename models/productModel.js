@@ -66,6 +66,19 @@ const productSchema = mongoose.Schema(
     }
 );
 
+productSchema.post("save", async function (doc, next) {
+    // Call the populate on a DOC NEED TO CALL execPopulate
+    await doc
+        .populate({
+            path: "merchant",
+        })
+        .populate({
+            path: "category",
+        })
+        .execPopulate();
+    next();
+});
+
 productSchema.pre(/^find/, function (next) {
     this.populate({
         path: "merchant",
